@@ -10,7 +10,7 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 @Component
 public class BotService extends TelegramLongPollingBot {
-    final Bot bot;
+    private final Bot bot;
     public BotService(Bot bot){
         this.bot=bot;
     }
@@ -44,6 +44,8 @@ public class BotService extends TelegramLongPollingBot {
                  default:
                      sendMessage(chatID,"I don't know this command!");
              }
+
+
          }
     }
 
