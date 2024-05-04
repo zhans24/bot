@@ -4,5 +4,5 @@ RUN mvn clean package -DskipTests
 
 FROM openjdk:17.0.1-jdk-slim
 COPY --from=build /target/telegramBot-0.0.1-SNAPSHOT.jar telegramBot.jar
-EXPOSE 8080
+EXPOSE 10000
 ENTRYPOINT ["java","-jar","telegramBot.jar"]
