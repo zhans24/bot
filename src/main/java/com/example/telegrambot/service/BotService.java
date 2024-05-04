@@ -43,8 +43,10 @@ public class BotService extends TelegramLongPollingBot {
                      break;
                  case "/help":
                      helpCommand(update,chatID);
+                     break;
                  default:
                      sendMessage(chatID,"I don't know this command!");
+                     break;
              }
 
 
