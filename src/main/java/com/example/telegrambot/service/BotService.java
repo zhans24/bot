@@ -41,12 +41,19 @@ public class BotService extends TelegramLongPollingBot {
                      String send="Hi,"+getUsername(update);
                      sendMessage(chatID,send);
                      break;
+                 case "/help":
+                     helpCommand(update,chatID);
                  default:
                      sendMessage(chatID,"I don't know this command!");
              }
 
 
          }
+    }
+
+    private void helpCommand(Update update,long chatid){
+        String text="Write about problems to @"+getUsername(update);
+        sendMessage(chatid,text);
     }
 
     private void sendMessage(long chatID, String send) {
