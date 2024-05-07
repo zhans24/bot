@@ -4,15 +4,33 @@ import com.example.telegrambot.config.Bot;
 
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
+import org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
+import org.telegram.telegrambots.meta.api.objects.commands.BotCommand;
+import org.telegram.telegrambots.meta.api.objects.commands.scope.BotCommandScopeDefault;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Component
 public class BotService extends TelegramLongPollingBot {
     private final Bot bot;
+
+
     public BotService(Bot bot){
         this.bot=bot;
+
+        List<BotCommand> commands=new ArrayList<>();
+        commands.add(new BotCommand("/start","Launch bot"));
+        commands.add(new BotCommand("/help","Questions about bot"));
+        try {
+            this.execute(new SetMyCommands(commands,new BotCommandScopeDefault(),null));
+        }catch (TelegramApiException e){
+        }
+
+
     }
 
     @Override
@@ -66,4 +84,6 @@ public class BotService extends TelegramLongPollingBot {
             throw new RuntimeException(e);
         }
     }
+
+
 }
