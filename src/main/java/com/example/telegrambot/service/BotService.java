@@ -61,7 +61,7 @@ public class BotService extends TelegramLongPollingBot {
         return update.getMessage().getFrom().getUserName();
     }
     private Map<Long, String> chatStates = new HashMap<>();
-
+    private ArrayList<String> objects=new ArrayList<>();
 
     @Override
     public void onUpdateReceived(Update update) {
@@ -77,35 +77,34 @@ public class BotService extends TelegramLongPollingBot {
             }
             else if (chatStates.get(chatID).equals("MONDAY")){
                 Schedule schedule=new Schedule();
-                ArrayList<String> objects=new ArrayList<>();
 
                 schedule.setDay("MONDAY");
 
-                while (true){
-                    if (!text.equals("/stop")) {
-                        objects.add(text);
-                        sendMessage(chatID, "Добавлено!\nНапишите еще занятие или для остановки /stop:");
-                        text="/stop";
-                    }
-                    else break;
+                if (!text.equals("/stop")) {
+                    objects.add(text);
+                    sendMessage(chatID, "Добавлено!\nНапишите еще занятие или для остановки /stop:");
                 }
-                schedule.setObjects(objects);
-                try {
-                    ScheduleRepo repo=new ScheduleRepo();
-                    ObjectMapper json=new ObjectMapper();
+                else {
+                    schedule.setObjects(objects);
+                    try {
+                        ScheduleRepo repo=new ScheduleRepo();
+                        ObjectMapper json=new ObjectMapper();
 
-                    JsonParser info = json.createParser(String.valueOf(schedule));
-
-                    repo.addQuery(chatID,info );
-                    sendMessage(chatID, "Все <b>успешно</b> добавлено в понедельник !");
-                } catch (Exception e) {
-                    log.error(e.getMessage());
+                        Map<String,Object> map=new HashMap<>();
+                        map.put(schedule.getDay(),schedule.getObjects());
+                        String to_json=json.writeValueAsString(map);
+                        repo.addQuery(chatID,to_json );
+                        sendMessage(chatID, "Все <b>успешно</b> добавлено в понедельник !");
+                    } catch (Exception e) {
+                        log.error(e.getMessage());
+                    }
+                    finally {
+                        this.objects=new ArrayList<>();
+                    }
                 }
             }else {
                 sendMessage(chatID, "I don't know this command!");
             }
-
-
          }
          else if (update.hasCallbackQuery()){
              String callbackData=update.getCallbackQuery().getData();
