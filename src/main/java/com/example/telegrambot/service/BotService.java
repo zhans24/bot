@@ -1,13 +1,20 @@
 package com.example.telegrambot.service;
 
+import com.example.telegrambot.Repository.ScheduleRepo;
 import com.example.telegrambot.config.Bot;
 
+import com.example.telegrambot.models.Schedule;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.tomcat.util.json.JSONParser;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.ParseMode;
 import org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
+import org.telegram.telegrambots.meta.api.methods.updates.GetUpdates;
+import org.telegram.telegrambots.meta.api.objects.Chat;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.api.objects.commands.BotCommand;
 import org.telegram.telegrambots.meta.api.objects.commands.scope.BotCommandScopeDefault;
@@ -15,8 +22,12 @@ import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMa
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 @Component
 @Slf4j
 public class BotService extends TelegramLongPollingBot {
@@ -49,6 +60,8 @@ public class BotService extends TelegramLongPollingBot {
     public String getUsername(Update update){
         return update.getMessage().getFrom().getUserName();
     }
+    private Map<Long, String> chatStates = new HashMap<>();
+
 
     @Override
     public void onUpdateReceived(Update update) {
@@ -56,17 +69,43 @@ public class BotService extends TelegramLongPollingBot {
             long chatID=update.getMessage().getChatId();
 
             String text=update.getMessage().getText();
-             switch (text){
-                 case "/start":
-                    startCommand(update,chatID);
-                     break;
-                 case "/help":
-                     helpCommand(chatID);
-                     break;
-                 default:
-                     sendMessage(chatID,"I don't know this command!");
-                     break;
-             }
+
+            if (text.equals("/start")) {
+                startCommand(update, chatID);
+            } else if (text.equals("/help")) {
+                helpCommand(chatID);
+            }
+            else if (chatStates.get(chatID).equals("MONDAY")){
+                Schedule schedule=new Schedule();
+                ArrayList<String> objects=new ArrayList<>();
+
+                schedule.setDay("MONDAY");
+
+                while (true){
+                    if (!text.equals("/stop")) {
+                        objects.add(text);
+                        sendMessage(chatID, "Добавлено!\nНапишите еще занятие или для остановки /stop:");
+                        text="/stop";
+                    }
+                    else break;
+                }
+                schedule.setObjects(objects);
+                try {
+                    ScheduleRepo repo=new ScheduleRepo();
+                    ObjectMapper json=new ObjectMapper();
+
+                    JsonParser info = json.createParser(String.valueOf(schedule));
+
+                    repo.addQuery(chatID,info );
+                    sendMessage(chatID, "Все <b>успешно</b> добавлено в понедельник !");
+                } catch (Exception e) {
+                    log.error(e.getMessage());
+                }
+            }else {
+                sendMessage(chatID, "I don't know this command!");
+            }
+
+
          }
          else if (update.hasCallbackQuery()){
              String callbackData=update.getCallbackQuery().getData();
@@ -74,6 +113,29 @@ public class BotService extends TelegramLongPollingBot {
             if (callbackData.equals("START_BUTTON")){
                  Weekdays(chatID);
              }
+            else if (callbackData.equals("MONDAY")){
+                Monday(chatID);
+            }
+            else if (callbackData.equals("TUESDAY")){
+                sendMessage(chatID, "TUESDAY");
+
+            }
+            else if (callbackData.equals("WEDNESDAY")){
+                sendMessage(chatID, "WEDNESDAY");
+
+            }
+            else if (callbackData.equals("THURSDAY")){
+                sendMessage(chatID, "THURSDAY");
+
+            }
+            else if (callbackData.equals("FRIDAY")){
+                sendMessage(chatID, "FRIDAY");
+
+            }
+            else if (callbackData.equals("SATURDAY")){
+                sendMessage(chatID, "SATURDAY");
+
+            }
          }
     }
 
@@ -122,6 +184,7 @@ public class BotService extends TelegramLongPollingBot {
 
     private void sendMessage(long chatID, String send) {
         SendMessage botsend=new SendMessage(String.valueOf(chatID),send);
+        botsend.setParseMode(ParseMode.HTML);
         try {
             execute(botsend);
         } catch (TelegramApiException e) {
@@ -149,7 +212,7 @@ public class BotService extends TelegramLongPollingBot {
 
         button=new InlineKeyboardButton();
         button.setText("4.Четверг");       // ЧЕТВЕРГ
-        button.setCallbackData("TUESDAY");
+        button.setCallbackData("THURSDAY");
 
         buttons.add(button);
         rows.add(buttons);
@@ -157,13 +220,13 @@ public class BotService extends TelegramLongPollingBot {
         buttons=new ArrayList<>();
         button=new InlineKeyboardButton();
         button.setText("2.Вторник");              // ВТОРНИК
-        button.setCallbackData("WEDNESDAY");
+        button.setCallbackData("TUESDAY");
 
         buttons.add(button);
 
         button=new InlineKeyboardButton();
         button.setText("5.Пятница");            //ПЯТНИЦА
-        button.setCallbackData("THURSDAY");
+        button.setCallbackData("FRIDAY");
 
         buttons.add(button);
         rows.add(buttons);
@@ -193,7 +256,15 @@ public class BotService extends TelegramLongPollingBot {
         }
     }
 
+    /*
+    * Methods for add objects to days
+     */
 
+    private void Monday(long chatId){
+        chatStates.put(chatId, "MONDAY");
+        String text="Теперь напиши <i>занятие</i> :";
+        sendMessage(chatId,text);
+    }
 
 
 }
