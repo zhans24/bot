@@ -2,19 +2,16 @@ package com.example.telegrambot.Repository;
 
 import com.example.telegrambot.Database.Database;
 import com.example.telegrambot.models.Schedule;
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
+
+import jakarta.persistence.criteria.CriteriaBuilder;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.boot.autoconfigure.gson.GsonAutoConfiguration;
+import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
-import static java.lang.String.valueOf;
 
 @Slf4j
 public class ScheduleRepo{
@@ -23,49 +20,97 @@ public class ScheduleRepo{
     public ScheduleRepo() throws SQLException {
     }
 
-    public void addQuery(long chatId, String info) {
+    public void addQuery(long chatId, Schedule schedule) {
         try {
-            String query = "INSERT INTO schedule (chatid, day_objects) VALUES (?, ?::json)";
+            String query = "INSERT INTO schedule (chatid, days,objects) VALUES (?, ?, ?)";
+
             PreparedStatement st = conn.prepareStatement(query);
+
             st.setLong(1, chatId);
-            st.setString(2,info);
+            st.setArray(2,conn.createArrayOf("smallint",schedule.getDays().toArray()));
+            st.setArray(3,conn.createArrayOf("text", schedule.getObjects().toArray()));
+
             st.execute();
         } catch (SQLException e) {
             log.error(e.getMessage());
         }
     }
 
-    public void updateQuery(long chatId,String info) {
+    public void updateQuery(long chatId,Schedule schedule) {
         try {
-            String query="UPDATE schedule SET day_objects=?::json WHERE chatid=?";
+            String query= """ 
+                    UPDATE schedule 
+                    SET days=?, objects=?
+                    WHERE chatid=?
+                    """;
             PreparedStatement st = conn.prepareStatement(query);
-            st.setLong(2, chatId);
-            st.setString(1,info);
+            st.setArray(1, conn.createArrayOf("smallint",schedule.getDays().toArray() ) );
+            st.setArray(2,conn.createArrayOf("text", schedule.getObjects().toArray()) );
+            st.setLong(3, chatId);
             st.execute();
         } catch (SQLException e) {
             log.error(e.getMessage());
         }
     }
 
-    public Schedule findById(long chatId){
+    public Schedule findById(long chatId, int day) {
         try {
-            String query="SELECT schedule WHERE chatid=?";
+            String query = "SELECT days, objects FROM schedule WHERE chatid = ?";
             PreparedStatement st = conn.prepareStatement(query);
             st.setLong(1, chatId);
-            ResultSet rs=st.executeQuery();
+            ResultSet rs = st.executeQuery();
 
-            if (rs.next()){
-                Schedule schedule=new Schedule();
+            if (rs.next() && getDay(chatId, day) != 0) {
+                Schedule schedule = new Schedule();
+                schedule.setChatID(chatId);
 
-                schedule.setChatID(rs.getLong("chatid"));
-                /*
-                 * schedule.setObjects(rs.getObject("", ));
-                */
+                Array arraySQL = rs.getArray("days");
+
+                // Convert the object to an array of strings
+                Integer[] days = (Integer[]) arraySQL.getArray();
+                schedule.setDays(new ArrayList<>(Arrays.asList(days)));
+
+                arraySQL = rs.getArray("objects");
+                Object[] array = (Object[]) arraySQL.getArray();
+
+                // Create a list to hold the objects
+                ArrayList<ArrayList<String>> objects = new ArrayList<>();
+
+                // Iterate over each object in the array
+                for (Object o : array) {
+                    // Convert the object to an array of strings
+                    String[] nestedArray = (String[]) ((Array) o).getArray();
+                    // Add the array of strings to the list of objects
+                    objects.add(new ArrayList<>(Arrays.asList(nestedArray)));
+                }
+
+                schedule.setObjects(objects);
+
                 return schedule;
             }
-        } catch (SQLException e) {
+        } catch (Exception e) {
             log.error(e.getMessage());
         }
         return null;
     }
+
+
+    private int getDay(long chatId,int day){
+        try {
+            String query="SELECT days[?] FROM schedule WHERE chatid = ?";
+            PreparedStatement st=conn.prepareStatement(query);
+
+            st.setInt(1, day);
+            st.setLong(2, chatId);
+
+            ResultSet rs=st.executeQuery();
+            if (rs.next())
+                return rs.getInt("days");
+
+        }catch (SQLException e){
+            log.error(e.getMessage());
+        }
+        return 0;
+    }
+
 }

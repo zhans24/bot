@@ -4,29 +4,24 @@ import com.example.telegrambot.Repository.ScheduleRepo;
 import com.example.telegrambot.config.Bot;
 
 import com.example.telegrambot.models.Schedule;
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.tomcat.util.json.JSONParser;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.ParseMode;
 import org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
-import org.telegram.telegrambots.meta.api.methods.updates.GetUpdates;
-import org.telegram.telegrambots.meta.api.objects.Chat;
+import org.telegram.telegrambots.meta.api.methods.updatingmessages.EditMessageText;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.api.objects.commands.BotCommand;
 import org.telegram.telegrambots.meta.api.objects.commands.scope.BotCommandScopeDefault;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
+import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardMarkup;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Component
 @Slf4j
@@ -57,85 +52,129 @@ public class BotService extends TelegramLongPollingBot {
         return bot.getBot_name();
     }
 
-    public String getUsername(Update update){
-        return update.getMessage().getFrom().getUserName();
-    }
     private Map<Long, String> chatStates = new HashMap<>();
-    private ArrayList<String> objects=new ArrayList<>();
-
+    private ArrayList<ArrayList<String>> objects=new ArrayList<>();
+    private ArrayList<Integer> days = new ArrayList<>(List.of(0, 0, 0, 0, 0, 0));
+    @SneakyThrows
     @Override
     public void onUpdateReceived(Update update) {
         if (update.hasMessage() && update.getMessage().hasText() ){
             long chatID=update.getMessage().getChatId();
+            Schedule schedule=new Schedule();
+            ScheduleRepo repo=new ScheduleRepo();
 
             String text=update.getMessage().getText();
 
-            if (text.equals("/start")) {
+            if (text.equals("/start"))
                 startCommand(update, chatID);
-            } else if (text.equals("/help")) {
+
+            else if (text.equals("/help"))
                 helpCommand(chatID);
-            }
+
             else if (chatStates.get(chatID).equals("MONDAY")){
-                Schedule schedule=new Schedule();
+                days.set(0, 1);
+                schedule.setDays(days);
 
-                schedule.setDay("MONDAY");
+                AddObject(chatID, schedule, repo, text,1);
+            }
 
-                if (!text.equals("/stop")) {
-                    objects.add(text);
-                    sendMessage(chatID, "Добавлено!\nНапишите еще занятие или для остановки /stop:");
+            else if (chatStates.get(chatID).equals("TUESDAY")){
+                days.set(1, 2);
+                schedule.setDays(days);
+
+                AddObject(chatID, schedule, repo, text,2);
+            }
+
+            else if (chatStates.get(chatID).equals("WEDNESDAY")){
+                days.set(2, 3);
+                schedule.setDays(days);
+
+                AddObject(chatID, schedule, repo, text,3);
+            }
+
+            else if (chatStates.get(chatID).equals("THURSDAY")){
+                days.set(3,4);
+                schedule.setDays(days);
+
+                AddObject(chatID, schedule, repo, text,4);
+            }
+
+            else if (chatStates.get(chatID).equals("FRIDAY")){
+                days.set(4,5);
+                schedule.setDays(days);
+
+                AddObject(chatID, schedule, repo, text,5);
+            }
+
+            else if (chatStates.get(chatID).equals("SATURDAY")){
+                days.set(5,6);
+                schedule.setDays(days);
+
+                AddObject(chatID, schedule, repo, text,6);
+            }
+
+            else
+                sendMessage(chatID, "Неправильный ввод!");
+
+         }
+        else if (update.hasCallbackQuery()){
+            String callbackData=update.getCallbackQuery().getData();
+            long chatID=update.getCallbackQuery().getMessage().getChatId();
+            int messageID=update.getCallbackQuery().getMessage().getMessageId();
+
+            if (callbackData.equals("START_BUTTON"))
+                 Weekdays(chatID);
+
+            else if (callbackData.equals("MONDAY"))
+                Monday(chatID,messageID);
+
+            else if (callbackData.equals("TUESDAY"))
+                Tuesday(chatID, messageID);
+
+            else if (callbackData.equals("WEDNESDAY"))
+                Wednesday(chatID, messageID);
+
+            else if (callbackData.equals("THURSDAY"))
+                Thursday(chatID, messageID);
+
+            else if (callbackData.equals("FRIDAY"))
+                Friday(chatID, messageID);
+
+            else if (callbackData.equals("SATURDAY"))
+                Saturday(chatID, messageID);
+
+            else if (callbackData.equals("CHANGE"))
+                changeData(chatID, messageID);
+         }
+    }
+
+    private void AddObject(long chatID, Schedule schedule, ScheduleRepo repo, String text,int day) {
+        ArrayList<String> object=new ArrayList<>();
+        if (!text.equals("/stop")) {
+            object.add(text);
+            sendMessage(chatID, "Напишите еще занятие или для остановки /stop:");
+        }
+        else {
+            try {
+                if (repo.findById(chatID,day) != null ) {
+                    objects.set(day-1,object );
+                    schedule.setObjects(objects);
+                    repo.updateQuery(chatID, schedule);
+                    sendMessage(chatID, "Все <b>успешно</b> обновлено !");
                 }
                 else {
+                    objects.add(object);
                     schedule.setObjects(objects);
-                    try {
-                        ScheduleRepo repo=new ScheduleRepo();
-                        ObjectMapper json=new ObjectMapper();
-
-                        Map<String,Object> map=new HashMap<>();
-                        map.put(schedule.getDay(),schedule.getObjects());
-                        String to_json=json.writeValueAsString(map);
-                        repo.addQuery(chatID,to_json );
-                        sendMessage(chatID, "Все <b>успешно</b> добавлено в понедельник !");
-                    } catch (Exception e) {
-                        log.error(e.getMessage());
-                    }
-                    finally {
-                        this.objects=new ArrayList<>();
-                    }
+                    repo.addQuery(chatID, schedule);
+                    sendMessage(chatID, "Все <b>успешно</b> добавлено !");
                 }
-            }else {
-                sendMessage(chatID, "I don't know this command!");
+            } catch (Exception e) {
+                log.error(e.getMessage());
             }
-         }
-         else if (update.hasCallbackQuery()){
-             String callbackData=update.getCallbackQuery().getData();
-             long chatID=update.getCallbackQuery().getMessage().getChatId();
-            if (callbackData.equals("START_BUTTON")){
-                 Weekdays(chatID);
-             }
-            else if (callbackData.equals("MONDAY")){
-                Monday(chatID);
+            finally {
+                this.objects=new ArrayList<>();
             }
-            else if (callbackData.equals("TUESDAY")){
-                sendMessage(chatID, "TUESDAY");
-
-            }
-            else if (callbackData.equals("WEDNESDAY")){
-                sendMessage(chatID, "WEDNESDAY");
-
-            }
-            else if (callbackData.equals("THURSDAY")){
-                sendMessage(chatID, "THURSDAY");
-
-            }
-            else if (callbackData.equals("FRIDAY")){
-                sendMessage(chatID, "FRIDAY");
-
-            }
-            else if (callbackData.equals("SATURDAY")){
-                sendMessage(chatID, "SATURDAY");
-
-            }
-         }
+        }
     }
 
     private void startCommand(Update update,long chatID){
@@ -188,6 +227,43 @@ public class BotService extends TelegramLongPollingBot {
             execute(botsend);
         } catch (TelegramApiException e) {
             log.error("[Error occured]"+e.getMessage());
+        }
+    }
+
+    private void sendMessage(long chatID, String send,ReplyKeyboardMarkup reply) {
+        SendMessage botsend=new SendMessage(String.valueOf(chatID),send);
+        botsend.setParseMode(ParseMode.HTML);
+        botsend.setReplyMarkup(reply);
+
+        try {
+            execute(botsend);
+        } catch (TelegramApiException e) {
+            log.error("[Error occured]"+e.getMessage());
+        }
+    }
+
+    private void sendEditMessage(long chatId,int messageId,String text){
+        EditMessageText message= EditMessageText.builder()
+                .messageId(messageId).chatId(chatId).text(text).build();
+
+        message.setParseMode(ParseMode.HTML);
+        try {
+            execute(message);
+        }catch (TelegramApiException t){
+            log.error(t.getMessage());
+        }
+    }
+
+    private void sendEditMessage(long chatId,int messageId,InlineKeyboardMarkup reply,String text){
+        EditMessageText message= EditMessageText.builder()
+                .messageId(messageId).chatId(chatId).text(text).build();
+        message.setReplyMarkup(reply);
+
+        message.setParseMode(ParseMode.HTML);
+        try {
+            execute(message);
+        }catch (TelegramApiException t){
+            log.error(t.getMessage());
         }
     }
 
@@ -255,15 +331,79 @@ public class BotService extends TelegramLongPollingBot {
         }
     }
 
-    /*
-    * Methods for add objects to days
-     */
 
-    private void Monday(long chatId){
-        chatStates.put(chatId, "MONDAY");
+
+
+
+    private void changeData(long chatId,int messageId){
         String text="Теперь напиши <i>занятие</i> :";
-        sendMessage(chatId,text);
+        sendEditMessage(chatId, messageId, text);
     }
 
+    private void checkUser(long chatId,int messageId,int day) throws SQLException {
+        ScheduleRepo repo=new ScheduleRepo();
+        Schedule schedule=repo.findById(chatId,day);
+
+        if (schedule != null){
+            String text="У вас уже создано расписание на этот день\nХотите изменить или добавить?";
+
+            InlineKeyboardMarkup reply=new InlineKeyboardMarkup();
+            List<InlineKeyboardButton> row=new ArrayList<>();
+            List<List<InlineKeyboardButton>> rows=new ArrayList<>();
+            InlineKeyboardButton button=new InlineKeyboardButton();
+
+            button.setText("1.Изменить");
+            button.setCallbackData("CHANGE");
+
+            row.add(button);
+
+            button=new InlineKeyboardButton();
+            button.setText("2.Добавить");
+            button.setCallbackData("ADD");
+
+            row.add(button);
+
+            rows.add(row);
+
+            reply.setKeyboard(rows);
+
+            sendEditMessage(chatId, messageId,reply,text);
+        }
+        else {
+            String text="Теперь напиши <i>занятие</i> :";
+
+            sendEditMessage( chatId, messageId,text);
+        }
+    }
+
+    private void Monday(long chatId,int messageId) throws Exception {
+        chatStates.put(chatId, "MONDAY");
+        checkUser(chatId, messageId,1);
+    }
+
+    private void Tuesday(long chatId,int messageId) throws Exception {
+        chatStates.put(chatId, "TUESDAY");
+        checkUser(chatId, messageId,2);
+    }
+
+    private void Wednesday(long chatId,int messageId) throws Exception {
+        chatStates.put(chatId, "WEDNESDAY");
+        checkUser(chatId, messageId,3);
+    }
+
+    private void Thursday(long chatId,int messageId) throws Exception {
+        chatStates.put(chatId, "THURSDAY");
+        checkUser(chatId, messageId,4);
+    }
+
+    private void Friday(long chatId,int messageId) throws Exception {
+        chatStates.put(chatId, "FRIDAY");
+        checkUser(chatId, messageId,5);
+    }
+
+    private void Saturday(long chatId,int messageId) throws Exception {
+        chatStates.put(chatId, "SATURDAY");
+        checkUser(chatId, messageId,6);
+    }
 
 }
