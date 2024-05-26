@@ -9,6 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 
 @Slf4j
@@ -85,6 +86,32 @@ public class ScheduleRepo{
 
         } catch (Exception e) {
             log.error(e.getMessage());
+        }
+        return null;
+    }
+
+    public List<List<String>> showObjects(long chatId) {
+        try {
+            String query = "SELECT * FROM schedule WHERE chatid = ?";
+            PreparedStatement st = conn.prepareStatement(query);
+            st.setLong(1, chatId);
+            ResultSet rs = st.executeQuery();
+
+            List<List<String>> array=new ArrayList<>();
+
+            if (rs.next()) {
+                for (int i = 1; i <= days.length; i++) {
+                    Array SQL=rs.getArray(days[i-1]);
+                    if (SQL!=null){
+                        String[] innerArray=(String[]) SQL.getArray();
+                        array.add(Arrays.asList(innerArray));
+                    }
+                }
+            }
+            return array;
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
         return null;
     }
