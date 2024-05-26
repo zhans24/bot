@@ -11,7 +11,6 @@ import java.util.ArrayList;
 public class Schedule {
     @Id
     private long chatID;
-    private ArrayList<Integer> days;
-    private ArrayList<ArrayList<String>> objects;
+    private ArrayList<String> objects;
 
 }

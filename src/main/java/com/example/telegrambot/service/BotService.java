@@ -16,7 +16,6 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.api.objects.commands.BotCommand;
 import org.telegram.telegrambots.meta.api.objects.commands.scope.BotCommandScopeDefault;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
-import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardMarkup;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
@@ -52,9 +51,9 @@ public class BotService extends TelegramLongPollingBot {
         return bot.getBot_name();
     }
 
-    private Map<Long, String> chatStates = new HashMap<>();
-    private ArrayList<ArrayList<String>> objects=new ArrayList<>();
-    private ArrayList<Integer> days = new ArrayList<>(List.of(0, 0, 0, 0, 0, 0));
+    private final Map<Long, String> chatStates = new HashMap<>();
+    private ArrayList<String> objects=new ArrayList<>();
+
     @SneakyThrows
     @Override
     public void onUpdateReceived(Update update) {
@@ -72,44 +71,26 @@ public class BotService extends TelegramLongPollingBot {
                 helpCommand(chatID);
 
             else if (chatStates.get(chatID).equals("MONDAY")){
-                days.set(0, 1);
-                schedule.setDays(days);
-
                 AddObject(chatID, schedule, repo, text,1);
             }
 
             else if (chatStates.get(chatID).equals("TUESDAY")){
-                days.set(1, 2);
-                schedule.setDays(days);
-
                 AddObject(chatID, schedule, repo, text,2);
             }
 
             else if (chatStates.get(chatID).equals("WEDNESDAY")){
-                days.set(2, 3);
-                schedule.setDays(days);
-
                 AddObject(chatID, schedule, repo, text,3);
             }
 
             else if (chatStates.get(chatID).equals("THURSDAY")){
-                days.set(3,4);
-                schedule.setDays(days);
-
                 AddObject(chatID, schedule, repo, text,4);
             }
 
             else if (chatStates.get(chatID).equals("FRIDAY")){
-                days.set(4,5);
-                schedule.setDays(days);
-
                 AddObject(chatID, schedule, repo, text,5);
             }
 
             else if (chatStates.get(chatID).equals("SATURDAY")){
-                days.set(5,6);
-                schedule.setDays(days);
-
                 AddObject(chatID, schedule, repo, text,6);
             }
 
@@ -145,34 +126,44 @@ public class BotService extends TelegramLongPollingBot {
 
             else if (callbackData.equals("CHANGE"))
                 changeData(chatID, messageID);
+
+            else if (callbackData.equals("ADD")) {
+                changeData(chatID, messageID);
+                statusOfChange = "add";
+            }
          }
     }
 
+    private String statusOfChange="change";
     private void AddObject(long chatID, Schedule schedule, ScheduleRepo repo, String text,int day) {
-        ArrayList<String> object=new ArrayList<>();
         if (!text.equals("/stop")) {
-            object.add(text);
-            sendMessage(chatID, "Напишите еще занятие или для остановки /stop:");
+            objects.add(text);
+            sendMessage(chatID,showObjects(objects) +"\nНапишите еще занятие или для остановки /stop:");
         }
         else {
+            schedule.setObjects(objects);
             try {
-                if (repo.findById(chatID,day) != null ) {
-                    objects.set(day-1,object );
-                    schedule.setObjects(objects);
-                    repo.updateQuery(chatID, schedule);
+                if (repo.userExist(chatID) && Objects.equals(statusOfChange, "change")) {
+                    repo.updateQuery(chatID, schedule,day);
                     sendMessage(chatID, "Все <b>успешно</b> обновлено !");
+                    Weekdays(chatID);
+                }
+                else if (repo.userExist(chatID) && Objects.equals(statusOfChange, "add")){
+                    repo.addExistQuery(chatID,schedule,day);
+                    sendMessage(chatID, "Все <b>успешно</b> добавлено !");
+                    Weekdays(chatID);
                 }
                 else {
-                    objects.add(object);
-                    schedule.setObjects(objects);
-                    repo.addQuery(chatID, schedule);
+                    repo.addQuery(chatID, schedule,day);
                     sendMessage(chatID, "Все <b>успешно</b> добавлено !");
+                    Weekdays(chatID);
                 }
             } catch (Exception e) {
                 log.error(e.getMessage());
             }
             finally {
                 this.objects=new ArrayList<>();
+                statusOfChange="change";
             }
         }
     }
@@ -223,18 +214,6 @@ public class BotService extends TelegramLongPollingBot {
     private void sendMessage(long chatID, String send) {
         SendMessage botsend=new SendMessage(String.valueOf(chatID),send);
         botsend.setParseMode(ParseMode.HTML);
-        try {
-            execute(botsend);
-        } catch (TelegramApiException e) {
-            log.error("[Error occured]"+e.getMessage());
-        }
-    }
-
-    private void sendMessage(long chatID, String send,ReplyKeyboardMarkup reply) {
-        SendMessage botsend=new SendMessage(String.valueOf(chatID),send);
-        botsend.setParseMode(ParseMode.HTML);
-        botsend.setReplyMarkup(reply);
-
         try {
             execute(botsend);
         } catch (TelegramApiException e) {
@@ -340,6 +319,12 @@ public class BotService extends TelegramLongPollingBot {
         sendEditMessage(chatId, messageId, text);
     }
 
+    private void addData(long chatId,int messageId){
+        String text="Теперь напиши <i>занятие</i> :";
+
+    }
+
+
     private void checkUser(long chatId,int messageId,int day) throws SQLException {
         ScheduleRepo repo=new ScheduleRepo();
         Schedule schedule=repo.findById(chatId,day);
@@ -347,25 +332,7 @@ public class BotService extends TelegramLongPollingBot {
         if (schedule != null){
             String text="У вас уже создано расписание на этот день\nХотите изменить или добавить?";
 
-            InlineKeyboardMarkup reply=new InlineKeyboardMarkup();
-            List<InlineKeyboardButton> row=new ArrayList<>();
-            List<List<InlineKeyboardButton>> rows=new ArrayList<>();
-            InlineKeyboardButton button=new InlineKeyboardButton();
-
-            button.setText("1.Изменить");
-            button.setCallbackData("CHANGE");
-
-            row.add(button);
-
-            button=new InlineKeyboardButton();
-            button.setText("2.Добавить");
-            button.setCallbackData("ADD");
-
-            row.add(button);
-
-            rows.add(row);
-
-            reply.setKeyboard(rows);
+            InlineKeyboardMarkup reply = ChangeAddButtons();
 
             sendEditMessage(chatId, messageId,reply,text);
         }
@@ -374,6 +341,29 @@ public class BotService extends TelegramLongPollingBot {
 
             sendEditMessage( chatId, messageId,text);
         }
+    }
+
+    private InlineKeyboardMarkup ChangeAddButtons() {
+        InlineKeyboardMarkup reply=new InlineKeyboardMarkup();
+        List<InlineKeyboardButton> row=new ArrayList<>();
+        List<List<InlineKeyboardButton>> rows=new ArrayList<>();
+        InlineKeyboardButton button=new InlineKeyboardButton();
+
+        button.setText("1.Изменить");
+        button.setCallbackData("CHANGE");
+
+        row.add(button);
+
+        button=new InlineKeyboardButton();
+        button.setText("2.Добавить");
+        button.setCallbackData("ADD");
+
+        row.add(button);
+
+        rows.add(row);
+
+        reply.setKeyboard(rows);
+        return reply;
     }
 
     private void Monday(long chatId,int messageId) throws Exception {
@@ -404,6 +394,17 @@ public class BotService extends TelegramLongPollingBot {
     private void Saturday(long chatId,int messageId) throws Exception {
         chatStates.put(chatId, "SATURDAY");
         checkUser(chatId, messageId,6);
+    }
+
+    private String showObjects(ArrayList<String> objects){
+        StringBuilder sb=new StringBuilder();
+        int order=1;
+        for (String text:objects) {
+            String modifiedText = text.substring(0, 1).toUpperCase() + text.substring(1).toLowerCase();
+            sb.append("<b>"+order+".</b>").append(modifiedText).append("\n");
+            order++;
+        }
+        return sb.toString();
     }
 
 }
