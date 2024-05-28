@@ -15,7 +15,7 @@ import java.util.List;
 @Slf4j
 public class ScheduleRepo{
     private final Connection conn=Database.getConnection();
-    private final String[] days={"monday","tuesday","wednesday","thursday","friday","saturday"};
+    public final String[] days={"monday","tuesday","wednesday","thursday","friday","saturday"};
 
     public ScheduleRepo() throws SQLException {
     }
@@ -97,14 +97,15 @@ public class ScheduleRepo{
             st.setLong(1, chatId);
             ResultSet rs = st.executeQuery();
 
-            List<List<String>> array=new ArrayList<>();
+            List<List<String>> array=new ArrayList<>(Arrays.asList( new ArrayList<>(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>() ));
+
 
             if (rs.next()) {
-                for (int i = 1; i <= days.length; i++) {
-                    Array SQL=rs.getArray(days[i-1]);
+                for (int i = 0; i < days.length; i++) {
+                    Array SQL=rs.getArray(days[i]);
                     if (SQL!=null){
                         String[] innerArray=(String[]) SQL.getArray();
-                        array.add(Arrays.asList(innerArray));
+                        array.set(i,Arrays.asList(innerArray));
                     }
                 }
             }
@@ -128,5 +129,19 @@ public class ScheduleRepo{
         } catch (SQLException e) {
             log.error(e.getMessage());
         }
+    }
+
+    public boolean removeQuery(long chatId,int day){
+        boolean isDayNull = false;
+        try{
+            String query="UPDATE schedule SET "+days[day-1]+"=NULL WHERE chatid=?";
+            PreparedStatement st=conn.prepareStatement(query);
+            st.setLong(1,chatId );
+            isDayNull=findById(chatId, day) != null;
+            st.execute();
+        }catch (SQLException e){
+            log.error(e.getMessage());
+        }
+        return isDayNull;
     }
 }

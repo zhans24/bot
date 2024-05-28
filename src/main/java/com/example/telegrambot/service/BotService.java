@@ -16,7 +16,9 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.api.objects.commands.BotCommand;
 import org.telegram.telegrambots.meta.api.objects.commands.scope.BotCommandScopeDefault;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
+import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardMarkup;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
+import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardRow;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 import java.sql.SQLException;
@@ -26,13 +28,17 @@ import java.util.*;
 @Slf4j
 public class BotService extends TelegramLongPollingBot {
     private final Bot bot;
-
+    @Deprecated
     public BotService(Bot bot){
         this.bot=bot;
 
         List<BotCommand> commands=new ArrayList<>();
-        commands.add(new BotCommand("/start","Launch bot"));
-        commands.add(new BotCommand("/help","Questions about bot"));
+        commands.add(new BotCommand("/start","Запустить бота"));
+        commands.add(new BotCommand("/help","Вопросы"));
+        commands.add(new BotCommand("/add","Добавить расписание"));
+        commands.add(new BotCommand("/delete","Удалить из расписания"));
+        commands.add(new BotCommand("/show","Посмотреть расписание"));
+        commands.add(new BotCommand("/bye","Остановка бота"));
         try {
             this.execute(new SetMyCommands(commands,new BotCommandScopeDefault(),null));
         }catch (TelegramApiException e){
@@ -45,13 +51,13 @@ public class BotService extends TelegramLongPollingBot {
         return bot.getToken();
     }
 
-
     @Override
     public String getBotUsername() {
         return bot.getBot_name();
     }
 
-    private final Map<Long, String> chatStates = new HashMap<>();
+    private final Map<Long, String> dayStates = new HashMap<>();
+    private final Map<Long, String> userStates = new HashMap<>();
     private ArrayList<String> objects=new ArrayList<>();
     private final SMSandButtons settings=new SMSandButtons();
     private final Days days=new Days();
@@ -65,82 +71,167 @@ public class BotService extends TelegramLongPollingBot {
             ScheduleRepo repo=new ScheduleRepo();
 
             String text=update.getMessage().getText();
+            switch (text) {
+                case "/start" -> startCommand(update, chatID);
+                case "/help" -> helpCommand(chatID);
+                case "/add" -> addCommand(chatID);
+                case "/delete" -> deleteCommand(chatID);
+                case "/show" -> showCommand(chatID);
+                case "/bye" -> {
+                    settings.sendMessage(chatID, "<b>Пока!</b>\nБот остановлен для запуска /start");
+                    return;
+                }
+                default -> {
+                    if (userStates.get(chatID)==null || (!userStates.get(chatID).equals("/del") && !userStates.get(chatID).equals("/add")) )
+                        settings.sendMessage(chatID, "Неправильный ввод!");
+                }
 
-            if (text.equals("/start"))
-                startCommand(update, chatID);
-
-            else if (text.equals("/help"))
-                helpCommand(chatID);
-
-            else if (chatStates.get(chatID).equals("MONDAY")){
-                AddObject(chatID, schedule, repo, text,1);
+            }
+            if (userStates.get(chatID)!=null) {
+                if (userStates.get(chatID).equals("/add")) {
+                    switch (dayStates.get(chatID)) {
+                        case "MONDAY" -> AddObject(chatID, schedule, repo, text, 1);
+                        case "TUESDAY" -> AddObject(chatID, schedule, repo, text, 2);
+                        case "WEDNESDAY" -> AddObject(chatID, schedule, repo, text, 3);
+                        case "THURSDAY" -> AddObject(chatID, schedule, repo, text, 4);
+                        case "FRIDAY" -> AddObject(chatID, schedule, repo, text, 5);
+                        case "SATURDAY" -> AddObject(chatID, schedule, repo, text, 6);
+                        default -> {
+                            if (!containsCommand(text))
+                                settings.sendMessage(chatID, "Выбери кнопку на сообщение!");
+                        }
+                    }
+                } else if (userStates.get(chatID).equals("/del")) {
+                    switch (text) {
+                        case "1.Пн" -> DeleteObject(chatID, 1);
+                        case "2.Вт" -> DeleteObject(chatID, 2);
+                        case "3.Ср" -> DeleteObject(chatID, 3);
+                        case "4.Чт" -> DeleteObject(chatID, 4);
+                        case "5.Пт" -> DeleteObject(chatID, 5);
+                        case "6.Сб" -> DeleteObject(chatID, 6);
+                        default -> {
+                            if (!containsCommand(text))
+                                settings.sendMessage(chatID,"Выбери из кнопок!");
+                        }
+                    }
+                }
             }
 
-            else if (chatStates.get(chatID).equals("TUESDAY")){
-                AddObject(chatID, schedule, repo, text,2);
-            }
-
-            else if (chatStates.get(chatID).equals("WEDNESDAY")){
-                AddObject(chatID, schedule, repo, text,3);
-            }
-
-            else if (chatStates.get(chatID).equals("THURSDAY")){
-                AddObject(chatID, schedule, repo, text,4);
-            }
-
-            else if (chatStates.get(chatID).equals("FRIDAY")){
-                AddObject(chatID, schedule, repo, text,5);
-            }
-
-            else if (chatStates.get(chatID).equals("SATURDAY")){
-                AddObject(chatID, schedule, repo, text,6);
-            }
-
-            else
-                settings.sendMessage(chatID, "Неправильный ввод!");
-
-         }
+        }
         else if (update.hasCallbackQuery()){
             String callbackData=update.getCallbackQuery().getData();
             long chatID=update.getCallbackQuery().getMessage().getChatId();
             int messageID=update.getCallbackQuery().getMessage().getMessageId();
 
-            if (callbackData.equals("START_BUTTON"))
-                 days.Weekdays(chatID,checkDays(chatID));
-
-            else if (callbackData.equals("MONDAY"))
-                days.Monday(chatID,messageID);
-
-            else if (callbackData.equals("TUESDAY"))
-                days.Tuesday(chatID, messageID);
-
-            else if (callbackData.equals("WEDNESDAY"))
-                days.Wednesday(chatID, messageID);
-
-            else if (callbackData.equals("THURSDAY"))
-                days.Thursday(chatID, messageID);
-
-            else if (callbackData.equals("FRIDAY"))
-                days.Friday(chatID, messageID);
-
-            else if (callbackData.equals("SATURDAY"))
-                days.Saturday(chatID, messageID);
-
-            else if (callbackData.equals("CHANGE"))
-                changeExistData(chatID, messageID);
-
-            else if (callbackData.equals("ADD")) {
-                changeExistData(chatID, messageID);
-                statusOfChange = "add";
+            switch (callbackData) {
+                case "START_BUTTON" -> days.Weekdays(chatID, 0);
+                case "MONDAY" -> days.Monday(chatID, messageID);
+                case "TUESDAY" -> days.Tuesday(chatID, messageID);
+                case "WEDNESDAY" -> days.Wednesday(chatID, messageID);
+                case "THURSDAY" -> days.Thursday(chatID, messageID);
+                case "FRIDAY" -> days.Friday(chatID, messageID);
+                case "SATURDAY" -> days.Saturday(chatID, messageID);
+                case "CHANGE" -> changeExistData(chatID, messageID);
+                case "ADD" -> {
+                    changeExistData(chatID, messageID);
+                    statusOfChange = "add";
+                }
             }
-         }
+
+        }
+
+    }
+    private boolean containsCommand(String text){
+        String[] commands={"/start","/show","/delete","/add","/help"};
+        for (String s:commands) {
+            if (text.equals(s))
+                return true;
+        }
+        return false;
+    }
+
+    private void showCommand(long chatId) throws SQLException {
+        userStates.put(chatId, "/show");
+        settings.sendMessage(chatId, showObjects(chatId));
+    }
+
+    private String showObjects(long chatID) throws SQLException {
+        List<List<String>> array=new ScheduleRepo().showObjects(chatID);
+        StringBuilder sb=new StringBuilder();
+        String[] days={"Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"};
+
+        for (int i=0;i<array.size();i++) {
+            List<String> objects=array.get(i);
+            sb.append("<b><i>").append(days[i]).append(":</i></b>\n");
+            if (!objects.isEmpty()) {
+                int count=1;
+                for (String o : objects) {
+                    sb.append("    ").append("<b>").append(count).append(".</b>").append(o).append("\n");
+                    count++;
+                }
+            }else {
+                sb.append("    ").append("\uD83D\uDDD1️\n");
+            }
+            sb.append("\n");
+        }
+        return sb.toString();
+    }
+
+    private void deleteCommand(long chatID) throws SQLException {
+        userStates.put(chatID, "/del");
+        String text=showObjects(chatID)+"\nДля <b>удаления</b> выберите день:";
+        SendMessage send=new SendMessage(String.valueOf(chatID), text);
+
+        ReplyKeyboardMarkup markup=new ReplyKeyboardMarkup();
+        List<KeyboardRow> buttons = new ArrayList<>();
+        KeyboardRow button1=new KeyboardRow();
+        KeyboardRow button2=new KeyboardRow();
+
+        button1.add("1.Пн");
+        button1.add("2.Вт");
+        button1.add("3.Ср");
+
+
+        buttons.add(button1);
+
+        button2.add("4.Чт");
+        button2.add("5.Пт");
+        button2.add("6.Сб");
+
+        buttons.add(button2);
+
+        markup.setKeyboard(buttons);
+        markup.setOneTimeKeyboard(true);
+        send.setReplyMarkup(markup);
+        send.setParseMode(ParseMode.HTML);
+        try {
+            execute(send);
+        }catch (TelegramApiException e) {
+            log.error(e.getMessage());
+        }
+
+    }
+
+    private void addCommand(long chatID) {
+        userStates.put(chatID, "/add");
+        dayStates.put(chatID, "");
+        days.Weekdays(chatID, 0);
     }
 
     private String statusOfChange="change";
     private void AddObject(long chatID, Schedule schedule, ScheduleRepo repo, String text,int day) {
         if (!text.equals("/stop")) {
-            objects.add(text);
-            settings.sendMessage(chatID,showObjects(objects) +"\nНапишите еще занятие или для остановки /stop:");
+            if (text.matches("\\d+\\s*")) {
+                if ((Integer.parseInt(text) - 1) < objects.size()) {
+                    objects.remove(Integer.parseInt(text) - 1);
+                    settings.sendMessage(chatID, showObjects(objects) + "\n<i>Для удаление введите число занятия для остановки</i> /stop\n<b>Напишите еще занятия:</b>");
+                }
+                else settings.sendMessage(chatID, "Число не соответствует количеству занятий!\nДля остановки /stop");
+            }
+            else {
+                objects.add(text);
+                settings.sendMessage(chatID, showObjects(objects) + "\nДля удаление введите число занятия для остановки /stop\n<b>Напишите еще занятия:</b>");
+            }
         }
         else {
             schedule.setObjects(objects);
@@ -160,17 +251,28 @@ public class BotService extends TelegramLongPollingBot {
                     settings.sendMessage(chatID, showObjects(objects)+"\nВсе <b>успешно</b> добавлено !");
                     days.Weekdays(chatID,checkDays(chatID));
                 }
+
             } catch (Exception e) {
                 log.error(e.getMessage());
             }
             finally {
                 this.objects=new ArrayList<>();
                 statusOfChange="change";
+                dayStates.put(chatID, null);
+                userStates.put(chatID, "/start");
             }
         }
     }
+    private void DeleteObject(long chatId,int day) throws SQLException {
+        ScheduleRepo repo=new ScheduleRepo();
+        if (repo.removeQuery(chatId, day)) {
+            settings.sendMessage(chatId, "<b>Успешно удалено!</b>");
+        }
+        else settings.sendMessage(chatId, "Этот день <b>пустой!</b>");
+    }
 
     private void startCommand(Update update,long chatID){
+        userStates.put(chatID, "/start");
         String text="<b>Привет ,  "+update.getMessage().getFrom().getFirstName()+"! \uD83D\uDC4B</b>";
         SendMessage message=new SendMessage(String.valueOf(chatID), text);
 
@@ -199,6 +301,7 @@ public class BotService extends TelegramLongPollingBot {
     }
 
     private void helpCommand(long chatid){
+        userStates.put(chatid, "/help");
         String text= """
                 Этот бот поможет вам составить и хранить расписание, которое будет повторяться каждую неделю📆
 
@@ -236,9 +339,14 @@ public class BotService extends TelegramLongPollingBot {
 
     private int checkDays(long chatId) throws SQLException {
         List<List<String>> arrayObjects=new ScheduleRepo().showObjects(chatId);
-        if (arrayObjects.isEmpty()) return 0;
-        if (arrayObjects.size()==6) return 1;
-        return 2;
+        if (arrayObjects.isEmpty())
+            return 0;
+
+        int count=0;
+        for (List<String> o:arrayObjects) {
+            if (!o.isEmpty()) count++;
+        }
+        return (count==6) ? 1 : 2;
     }
 
     private String showObjects(ArrayList<String> objects){
@@ -254,7 +362,7 @@ public class BotService extends TelegramLongPollingBot {
 
     private final class Days {
         public void Weekdays(long chatID,int status){
-            String text="";
+            String text;
             if (status==0) text="Давай начнем!\n\n<b>\uD83D\uDCCCСначала выбери день :</b>";
             else if (status==1){
                 text="Поздравляю ты заполнил свое <b>расписание!</b>\uD83E\uDD29";
@@ -271,32 +379,32 @@ public class BotService extends TelegramLongPollingBot {
         }
 
         public void Monday(long chatId,int messageId) throws Exception {
-            chatStates.put(chatId, "MONDAY");
+            dayStates.put(chatId, "MONDAY");
             checkUser(chatId, messageId,1);
         }
 
         public void Tuesday(long chatId,int messageId) throws Exception {
-            chatStates.put(chatId, "TUESDAY");
+            dayStates.put(chatId, "TUESDAY");
             checkUser(chatId, messageId,2);
         }
 
         public void Wednesday(long chatId,int messageId) throws Exception {
-            chatStates.put(chatId, "WEDNESDAY");
+            dayStates.put(chatId, "WEDNESDAY");
             checkUser(chatId, messageId,3);
         }
 
         public void Thursday(long chatId,int messageId) throws Exception {
-            chatStates.put(chatId, "THURSDAY");
+            dayStates.put(chatId, "THURSDAY");
             checkUser(chatId, messageId,4);
         }
 
         public void Friday(long chatId,int messageId) throws Exception {
-            chatStates.put(chatId, "FRIDAY");
+            dayStates.put(chatId, "FRIDAY");
             checkUser(chatId, messageId,5);
         }
 
         public void Saturday(long chatId,int messageId) throws Exception {
-            chatStates.put(chatId, "SATURDAY");
+            dayStates.put(chatId, "SATURDAY");
             checkUser(chatId, messageId,6);
         }
     }
@@ -412,8 +520,5 @@ public class BotService extends TelegramLongPollingBot {
                 log.error(t.getMessage());
             }
         }
-
     }
-
 }
-
