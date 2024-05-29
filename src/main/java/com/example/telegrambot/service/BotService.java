@@ -58,7 +58,7 @@ public class BotService extends TelegramLongPollingBot {
 
     private final Map<Long, String> dayStates = new HashMap<>();
     private final Map<Long, String> userStates = new HashMap<>();
-    private ArrayList<String> objects=new ArrayList<>();
+    private final Map<Long, ArrayList<String>> objects=new HashMap<>();
     private final SMSandButtons settings=new SMSandButtons();
     private final Days days=new Days();
 
@@ -69,6 +69,7 @@ public class BotService extends TelegramLongPollingBot {
             long chatID=update.getMessage().getChatId();
             Schedule schedule=new Schedule();
             ScheduleRepo repo=new ScheduleRepo();
+            objects.put(chatID, new ArrayList<>());
 
             String text=update.getMessage().getText();
             switch (text) {
@@ -82,8 +83,8 @@ public class BotService extends TelegramLongPollingBot {
                     return;
                 }
                 default -> {
-                    if (userStates.get(chatID)==null || (!userStates.get(chatID).equals("/del") && !userStates.get(chatID).equals("/add")) )
-                        settings.sendMessage(chatID, "Неправильный ввод!");
+                    if (userStates.get(chatID)==null || !userStates.get(chatID).equals("/del") && !userStates.get(chatID).equals("/add"))
+                        settings.sendMessage(chatID, "Выберите команду!");
                 }
 
             }
@@ -217,38 +218,40 @@ public class BotService extends TelegramLongPollingBot {
         dayStates.put(chatID, "");
         days.Weekdays(chatID, 0);
     }
-
+    private ArrayList<String> o=new ArrayList<>();
     private String statusOfChange="change";
-    private void AddObject(long chatID, Schedule schedule, ScheduleRepo repo, String text,int day) {
+    synchronized private void AddObject(long chatID, Schedule schedule, ScheduleRepo repo, String text,int day) {
         if (!text.equals("/stop")) {
             if (text.matches("\\d+\\s*")) {
-                if ((Integer.parseInt(text) - 1) < objects.size()) {
-                    objects.remove(Integer.parseInt(text) - 1);
-                    settings.sendMessage(chatID, showObjects(objects) + "\n<i>Для удаление введите число занятия для остановки</i> /stop\n<b>Напишите еще занятия:</b>");
+                if ((Integer.parseInt(text) - 1) < objects.get(chatID).size()) {
+                    o.remove(Integer.parseInt(text) - 1);
+                    objects.put(chatID, o);
+                    settings.sendMessage(chatID, showObjects(objects.get(chatID)) + "\n<i>Для удаление введите число занятия для остановки</i> /stop\n<b>Напишите еще занятия:</b>");
                 }
                 else settings.sendMessage(chatID, "Число не соответствует количеству занятий!\nДля остановки /stop");
             }
             else {
-                objects.add(text);
-                settings.sendMessage(chatID, showObjects(objects) + "\nДля удаление введите число занятия для остановки /stop\n<b>Напишите еще занятия:</b>");
+                o.add(text);
+                objects.put(chatID, o);
+                settings.sendMessage(chatID, showObjects(objects.get(chatID)) + "\nДля удаление введите число занятия для остановки /stop\n<b>Напишите еще занятия:</b>");
             }
         }
         else {
-            schedule.setObjects(objects);
+            schedule.setObjects(objects.get(chatID));
             try {
                 if (repo.userExist(chatID) && Objects.equals(statusOfChange, "change")) {
                     repo.updateQuery(chatID, schedule,day);
-                    settings.sendMessage(chatID, showObjects(objects)+"\nВсе <b>успешно</b> обновлено !");
+                    settings.sendMessage(chatID, showObjects(objects.get(chatID))+"\nВсе <b>успешно</b> обновлено !");
                     days.Weekdays(chatID,checkDays(chatID));
                 }
                 else if (repo.userExist(chatID) && Objects.equals(statusOfChange, "add")){
                     repo.addExistQuery(chatID,schedule,day);
-                    settings.sendMessage(chatID, showObjects(objects)+"\nВсе <b>успешно</b> добавлено !");
+                    settings.sendMessage(chatID, showObjects(objects.get(chatID))+"\nВсе <b>успешно</b> добавлено !");
                     days.Weekdays(chatID,checkDays(chatID));
                 }
                 else {
                     repo.addQuery(chatID, schedule,day);
-                    settings.sendMessage(chatID, showObjects(objects)+"\nВсе <b>успешно</b> добавлено !");
+                    settings.sendMessage(chatID, showObjects(objects.get(chatID))+"\nВсе <b>успешно</b> добавлено !");
                     days.Weekdays(chatID,checkDays(chatID));
                 }
 
@@ -256,8 +259,9 @@ public class BotService extends TelegramLongPollingBot {
                 log.error(e.getMessage());
             }
             finally {
-                this.objects=new ArrayList<>();
+                this.objects.put(chatID, new ArrayList<>());
                 statusOfChange="change";
+                o=new ArrayList<>();
                 dayStates.put(chatID, null);
                 userStates.put(chatID, "/start");
             }
@@ -362,6 +366,7 @@ public class BotService extends TelegramLongPollingBot {
 
     private final class Days {
         public void Weekdays(long chatID,int status){
+            userStates.put(chatID, "/add");
             String text;
             if (status==0) text="Давай начнем!\n\n<b>\uD83D\uDCCCСначала выбери день :</b>";
             else if (status==1){
@@ -390,21 +395,25 @@ public class BotService extends TelegramLongPollingBot {
 
         public void Wednesday(long chatId,int messageId) throws Exception {
             dayStates.put(chatId, "WEDNESDAY");
+
             checkUser(chatId, messageId,3);
         }
 
         public void Thursday(long chatId,int messageId) throws Exception {
             dayStates.put(chatId, "THURSDAY");
+
             checkUser(chatId, messageId,4);
         }
 
         public void Friday(long chatId,int messageId) throws Exception {
             dayStates.put(chatId, "FRIDAY");
+
             checkUser(chatId, messageId,5);
         }
 
         public void Saturday(long chatId,int messageId) throws Exception {
             dayStates.put(chatId, "SATURDAY");
+
             checkUser(chatId, messageId,6);
         }
     }
