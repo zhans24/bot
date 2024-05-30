@@ -5,6 +5,7 @@ import com.example.telegrambot.config.Bot;
 
 import com.example.telegrambot.models.Schedule;
 import lombok.SneakyThrows;
+import lombok.Synchronized;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
@@ -58,7 +59,7 @@ public class BotService extends TelegramLongPollingBot {
 
     private final Map<Long, String> dayStates = new HashMap<>();
     private final Map<Long, String> userStates = new HashMap<>();
-    private final Map<Long, ArrayList<String>> objects=new HashMap<>();
+    private List<String> objects= Collections.synchronizedList(new ArrayList<>());
     private final SMSandButtons settings=new SMSandButtons();
     private final Days days=new Days();
 
@@ -69,7 +70,6 @@ public class BotService extends TelegramLongPollingBot {
             long chatID=update.getMessage().getChatId();
             Schedule schedule=new Schedule();
             ScheduleRepo repo=new ScheduleRepo();
-            objects.put(chatID, new ArrayList<>());
 
             String text=update.getMessage().getText();
             switch (text) {
@@ -218,53 +218,47 @@ public class BotService extends TelegramLongPollingBot {
         dayStates.put(chatID, "");
         days.Weekdays(chatID, 0);
     }
-    private ArrayList<String> o=new ArrayList<>();
     private String statusOfChange="change";
     synchronized private void AddObject(long chatID, Schedule schedule, ScheduleRepo repo, String text,int day) {
         if (!text.equals("/stop")) {
             if (text.matches("\\d+\\s*")) {
-                if ((Integer.parseInt(text) - 1) < objects.get(chatID).size()) {
-                    o.remove(Integer.parseInt(text) - 1);
-                    objects.put(chatID, o);
-                    settings.sendMessage(chatID, showObjects(objects.get(chatID)) + "\n<i>Для удаление введите число занятия для остановки</i> /stop\n<b>Напишите еще занятия:</b>");
-                }
-                else settings.sendMessage(chatID, "Число не соответствует количеству занятий!\nДля остановки /stop");
+                if ((Integer.parseInt(text) - 1) < objects.size()) {
+                    objects.remove(Integer.parseInt(text) - 1);
+                    settings.sendMessage(chatID, showObjects(objects) + "\n<i>Для удаление введите число занятия для остановки</i> /stop\n<b>Напишите еще занятия:</b>");
+                } else
+                    settings.sendMessage(chatID, "Число не соответствует количеству занятий!\nДля остановки /stop");
             }
             else {
-                o.add(text);
-                objects.put(chatID, o);
-                settings.sendMessage(chatID, showObjects(objects.get(chatID)) + "\nДля удаление введите число занятия для остановки /stop\n<b>Напишите еще занятия:</b>");
+                objects.add(text);
+                settings.sendMessage(chatID, showObjects(objects) + "\nДля удаление введите число занятия для остановки /stop\n<b>Напишите еще занятия:</b>");
             }
         }
         else {
-            schedule.setObjects(objects.get(chatID));
+            schedule.setObjects(objects);
             try {
                 if (repo.userExist(chatID) && Objects.equals(statusOfChange, "change")) {
                     repo.updateQuery(chatID, schedule,day);
-                    settings.sendMessage(chatID, showObjects(objects.get(chatID))+"\nВсе <b>успешно</b> обновлено !");
+                    settings.sendMessage(chatID, showObjects(objects)+"\nВсе <b>успешно</b> обновлено !");
                     days.Weekdays(chatID,checkDays(chatID));
                 }
                 else if (repo.userExist(chatID) && Objects.equals(statusOfChange, "add")){
                     repo.addExistQuery(chatID,schedule,day);
-                    settings.sendMessage(chatID, showObjects(objects.get(chatID))+"\nВсе <b>успешно</b> добавлено !");
+                    settings.sendMessage(chatID, showObjects(objects)+"\nВсе <b>успешно</b> добавлено !");
                     days.Weekdays(chatID,checkDays(chatID));
                 }
                 else {
                     repo.addQuery(chatID, schedule,day);
-                    settings.sendMessage(chatID, showObjects(objects.get(chatID))+"\nВсе <b>успешно</b> добавлено !");
+                    settings.sendMessage(chatID, showObjects(objects)+"\nВсе <b>успешно</b> добавлено !");
                     days.Weekdays(chatID,checkDays(chatID));
                 }
 
             } catch (Exception e) {
                 log.error(e.getMessage());
             }
-            finally {
-                this.objects.put(chatID, new ArrayList<>());
-                statusOfChange="change";
-                o=new ArrayList<>();
-                dayStates.put(chatID, null);
-                userStates.put(chatID, "/start");
-            }
+            this.objects=new ArrayList<>();
+            statusOfChange="change";
+            dayStates.put(chatID, "");
+            userStates.put(chatID, "/add");
         }
     }
     private void DeleteObject(long chatId,int day) throws SQLException {
@@ -353,7 +347,7 @@ public class BotService extends TelegramLongPollingBot {
         return (count==6) ? 1 : 2;
     }
 
-    private String showObjects(ArrayList<String> objects){
+    private String showObjects(List<String> objects){
         StringBuilder sb=new StringBuilder();
         int order=1;
         for (String text:objects) {
