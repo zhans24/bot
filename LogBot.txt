@@ -1,157 +1,439 @@
-2024-05-30T01:28:20.742+05:00  INFO 10696 --- [telegramBot] [restartedMain] c.e.telegrambot.TelegramBotApplication   : Starting TelegramBotApplication using Java 21.0.1 with PID 10696 (C:\Users\USER\IdeaProjects\telegramBot\target\classes started by USER in C:\Users\USER\IdeaProjects\telegramBot)
-2024-05-30T01:28:20.750+05:00  INFO 10696 --- [telegramBot] [restartedMain] c.e.telegrambot.TelegramBotApplication   : No active profile set, falling back to 1 default profile: "default"
-2024-05-30T01:28:20.785+05:00  INFO 10696 --- [telegramBot] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2024-05-30T01:28:20.785+05:00  INFO 10696 --- [telegramBot] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2024-05-30T01:28:21.902+05:00  INFO 10696 --- [telegramBot] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-05-30T01:28:21.916+05:00  INFO 10696 --- [telegramBot] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-05-30T01:28:21.916+05:00  INFO 10696 --- [telegramBot] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
-2024-05-30T01:28:21.949+05:00  INFO 10696 --- [telegramBot] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-05-30T01:28:21.949+05:00  INFO 10696 --- [telegramBot] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1163 ms
-2024-05-30T01:28:23.133+05:00  INFO 10696 --- [telegramBot] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2024-05-30T01:28:23.171+05:00  INFO 10696 --- [telegramBot] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
-2024-05-30T01:28:23.286+05:00  INFO 10696 --- [telegramBot] [restartedMain] c.e.telegrambot.TelegramBotApplication   : Started TelegramBotApplication in 2.869 seconds (process running for 3.754)
-2024-05-30T14:55:10.219+05:00  INFO 9440 --- [telegramBot] [restartedMain] c.e.telegrambot.TelegramBotApplication   : Starting TelegramBotApplication using Java 21.0.1 with PID 9440 (C:\Users\USER\IdeaProjects\telegramBot\target\classes started by USER in C:\Users\USER\IdeaProjects\telegramBot)
-2024-05-30T14:55:10.221+05:00  INFO 9440 --- [telegramBot] [restartedMain] c.e.telegrambot.TelegramBotApplication   : No active profile set, falling back to 1 default profile: "default"
-2024-05-30T14:55:10.271+05:00  INFO 9440 --- [telegramBot] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2024-05-30T14:55:10.271+05:00  INFO 9440 --- [telegramBot] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2024-05-30T14:55:11.298+05:00  INFO 9440 --- [telegramBot] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-05-30T14:55:11.310+05:00  INFO 9440 --- [telegramBot] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-05-30T14:55:11.311+05:00  INFO 9440 --- [telegramBot] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
-2024-05-30T14:55:11.345+05:00  INFO 9440 --- [telegramBot] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-05-30T14:55:11.345+05:00  INFO 9440 --- [telegramBot] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1074 ms
-2024-05-30T14:55:12.508+05:00  INFO 9440 --- [telegramBot] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2024-05-30T14:55:12.536+05:00  INFO 9440 --- [telegramBot] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
-2024-05-30T14:55:12.664+05:00  INFO 9440 --- [telegramBot] [restartedMain] c.e.telegrambot.TelegramBotApplication   : Started TelegramBotApplication in 2.893 seconds (process running for 3.692)
-2024-05-30T14:57:34.164+05:00  INFO 14800 --- [telegramBot] [restartedMain] c.e.telegrambot.TelegramBotApplication   : Starting TelegramBotApplication using Java 21.0.1 with PID 14800 (C:\Users\USER\IdeaProjects\telegramBot\target\classes started by USER in C:\Users\USER\IdeaProjects\telegramBot)
-2024-05-30T14:57:34.166+05:00  INFO 14800 --- [telegramBot] [restartedMain] c.e.telegrambot.TelegramBotApplication   : No active profile set, falling back to 1 default profile: "default"
-2024-05-30T14:57:34.199+05:00  INFO 14800 --- [telegramBot] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2024-05-30T14:57:34.199+05:00  INFO 14800 --- [telegramBot] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2024-05-30T14:57:34.856+05:00  INFO 14800 --- [telegramBot] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-05-30T14:57:34.866+05:00  INFO 14800 --- [telegramBot] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-05-30T14:57:34.866+05:00  INFO 14800 --- [telegramBot] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
-2024-05-30T14:57:34.895+05:00  INFO 14800 --- [telegramBot] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-05-30T14:57:34.895+05:00  INFO 14800 --- [telegramBot] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 696 ms
-2024-05-30T14:57:35.771+05:00  INFO 14800 --- [telegramBot] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2024-05-30T14:57:35.798+05:00  INFO 14800 --- [telegramBot] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
-2024-05-30T14:57:35.907+05:00  INFO 14800 --- [telegramBot] [restartedMain] c.e.telegrambot.TelegramBotApplication   : Started TelegramBotApplication in 2.001 seconds (process running for 2.691)
-2024-05-30T14:57:43.047+05:00  INFO 460 --- [telegramBot] [restartedMain] c.e.telegrambot.TelegramBotApplication   : Starting TelegramBotApplication using Java 21.0.1 with PID 460 (C:\Users\USER\IdeaProjects\telegramBot\target\classes started by USER in C:\Users\USER\IdeaProjects\telegramBot)
-2024-05-30T14:57:43.049+05:00  INFO 460 --- [telegramBot] [restartedMain] c.e.telegrambot.TelegramBotApplication   : No active profile set, falling back to 1 default profile: "default"
-2024-05-30T14:57:43.083+05:00  INFO 460 --- [telegramBot] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2024-05-30T14:57:43.083+05:00  INFO 460 --- [telegramBot] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2024-05-30T14:57:43.726+05:00  INFO 460 --- [telegramBot] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-05-30T14:57:43.734+05:00  INFO 460 --- [telegramBot] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-05-30T14:57:43.734+05:00  INFO 460 --- [telegramBot] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
-2024-05-30T14:57:43.764+05:00  INFO 460 --- [telegramBot] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-05-30T14:57:43.765+05:00  INFO 460 --- [telegramBot] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 682 ms
-2024-05-30T14:57:44.621+05:00  INFO 460 --- [telegramBot] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2024-05-30T14:57:44.648+05:00  INFO 460 --- [telegramBot] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
-2024-05-30T14:57:44.758+05:00  INFO 460 --- [telegramBot] [restartedMain] c.e.telegrambot.TelegramBotApplication   : Started TelegramBotApplication in 2.015 seconds (process running for 2.572)
-2024-05-30T14:59:07.239+05:00  INFO 9340 --- [telegramBot] [restartedMain] c.e.telegrambot.TelegramBotApplication   : Starting TelegramBotApplication using Java 21.0.1 with PID 9340 (C:\Users\USER\IdeaProjects\telegramBot\target\classes started by USER in C:\Users\USER\IdeaProjects\telegramBot)
-2024-05-30T14:59:07.241+05:00  INFO 9340 --- [telegramBot] [restartedMain] c.e.telegrambot.TelegramBotApplication   : No active profile set, falling back to 1 default profile: "default"
-2024-05-30T14:59:07.296+05:00  INFO 9340 --- [telegramBot] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2024-05-30T14:59:07.296+05:00  INFO 9340 --- [telegramBot] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2024-05-30T14:59:07.994+05:00  INFO 9340 --- [telegramBot] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-05-30T14:59:08.005+05:00  INFO 9340 --- [telegramBot] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-05-30T14:59:08.005+05:00  INFO 9340 --- [telegramBot] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
-2024-05-30T14:59:08.034+05:00  INFO 9340 --- [telegramBot] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-05-30T14:59:08.035+05:00  INFO 9340 --- [telegramBot] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 737 ms
-2024-05-30T14:59:08.899+05:00  INFO 9340 --- [telegramBot] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2024-05-30T14:59:08.925+05:00  INFO 9340 --- [telegramBot] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
-2024-05-30T14:59:09.037+05:00  INFO 9340 --- [telegramBot] [restartedMain] c.e.telegrambot.TelegramBotApplication   : Started TelegramBotApplication in 2.264 seconds (process running for 2.841)
-2024-05-30T15:10:57.488+05:00  INFO 15488 --- [telegramBot] [restartedMain] c.e.telegrambot.TelegramBotApplication   : Starting TelegramBotApplication using Java 21.0.1 with PID 15488 (C:\Users\USER\IdeaProjects\telegramBot\target\classes started by USER in C:\Users\USER\IdeaProjects\telegramBot)
-2024-05-30T15:10:57.489+05:00  INFO 15488 --- [telegramBot] [restartedMain] c.e.telegrambot.TelegramBotApplication   : No active profile set, falling back to 1 default profile: "default"
-2024-05-30T15:10:57.518+05:00  INFO 15488 --- [telegramBot] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2024-05-30T15:10:57.518+05:00  INFO 15488 --- [telegramBot] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2024-05-30T15:10:58.119+05:00  INFO 15488 --- [telegramBot] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-05-30T15:10:58.129+05:00  INFO 15488 --- [telegramBot] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-05-30T15:10:58.129+05:00  INFO 15488 --- [telegramBot] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
-2024-05-30T15:10:58.158+05:00  INFO 15488 --- [telegramBot] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-05-30T15:10:58.158+05:00  INFO 15488 --- [telegramBot] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 639 ms
-2024-05-30T15:10:58.977+05:00  INFO 15488 --- [telegramBot] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2024-05-30T15:10:58.998+05:00  INFO 15488 --- [telegramBot] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
-2024-05-30T15:10:59.112+05:00  INFO 15488 --- [telegramBot] [restartedMain] c.e.telegrambot.TelegramBotApplication   : Started TelegramBotApplication in 1.865 seconds (process running for 2.44)
-2024-05-30T15:11:07.084+05:00 ERROR 15488 --- [telegramBot] [schedule_aitubot Telegram Executor] o.t.t.u.DefaultBotSession                : class java.util.Collections$SynchronizedRandomAccessList cannot be cast to class java.util.ArrayList (java.util.Collections$SynchronizedRandomAccessList and java.util.ArrayList are in module java.base of loader 'bootstrap')
+2024-05-31T03:38:43.358+05:00  INFO 14908 --- [telegramBot] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-05-31T03:38:43.359+05:00  INFO 14908 --- [telegramBot] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-05-31T03:38:43.990+05:00  INFO 14908 --- [telegramBot] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-05-31T03:38:43.997+05:00  INFO 14908 --- [telegramBot] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-05-31T03:38:43.997+05:00  INFO 14908 --- [telegramBot] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-05-31T03:38:44.025+05:00  INFO 14908 --- [telegramBot] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-05-31T03:38:44.025+05:00  INFO 14908 --- [telegramBot] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 666 ms
+2024-05-31T03:38:44.851+05:00  INFO 14908 --- [telegramBot] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-05-31T03:38:44.873+05:00  INFO 14908 --- [telegramBot] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-05-31T03:41:23.274+05:00  INFO 7384 --- [telegramBot] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-05-31T03:41:23.275+05:00  INFO 7384 --- [telegramBot] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-05-31T03:41:23.998+05:00  INFO 7384 --- [telegramBot] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-05-31T03:41:24.007+05:00  INFO 7384 --- [telegramBot] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-05-31T03:41:24.007+05:00  INFO 7384 --- [telegramBot] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-05-31T03:41:24.035+05:00  INFO 7384 --- [telegramBot] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-05-31T03:41:24.035+05:00  INFO 7384 --- [telegramBot] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 759 ms
+2024-05-31T03:41:24.933+05:00  INFO 7384 --- [telegramBot] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-05-31T03:41:24.957+05:00  INFO 7384 --- [telegramBot] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-05-31T03:41:58.622+05:00  INFO 8144 --- [telegramBot] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-05-31T03:41:58.623+05:00  INFO 8144 --- [telegramBot] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-05-31T03:41:59.269+05:00  INFO 8144 --- [telegramBot] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-05-31T03:41:59.276+05:00  INFO 8144 --- [telegramBot] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-05-31T03:41:59.278+05:00  INFO 8144 --- [telegramBot] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-05-31T03:41:59.302+05:00  INFO 8144 --- [telegramBot] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-05-31T03:41:59.303+05:00  INFO 8144 --- [telegramBot] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 679 ms
+2024-05-31T03:42:00.216+05:00  INFO 8144 --- [telegramBot] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-05-31T03:42:00.238+05:00  INFO 8144 --- [telegramBot] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-05-31T03:46:54.693+05:00  INFO 12144 --- [telegramBot] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-05-31T03:46:54.694+05:00  INFO 12144 --- [telegramBot] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-05-31T03:46:55.550+05:00  INFO 12144 --- [telegramBot] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-05-31T03:46:55.559+05:00  INFO 12144 --- [telegramBot] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-05-31T03:46:55.559+05:00  INFO 12144 --- [telegramBot] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-05-31T03:46:55.589+05:00  INFO 12144 --- [telegramBot] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-05-31T03:46:55.590+05:00  INFO 12144 --- [telegramBot] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 896 ms
+2024-05-31T03:46:56.497+05:00  INFO 12144 --- [telegramBot] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-05-31T03:46:56.518+05:00  INFO 12144 --- [telegramBot] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-05-31T03:48:51.175+05:00  INFO 14824 --- [telegramBot] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-05-31T03:48:51.176+05:00  INFO 14824 --- [telegramBot] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-05-31T03:48:51.824+05:00  INFO 14824 --- [telegramBot] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-05-31T03:48:51.832+05:00  INFO 14824 --- [telegramBot] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-05-31T03:48:51.833+05:00  INFO 14824 --- [telegramBot] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-05-31T03:48:51.860+05:00  INFO 14824 --- [telegramBot] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-05-31T03:48:51.860+05:00  INFO 14824 --- [telegramBot] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 683 ms
+2024-05-31T03:48:52.679+05:00  INFO 14824 --- [telegramBot] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-05-31T03:48:52.701+05:00  INFO 14824 --- [telegramBot] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-05-31T03:49:19.760+05:00  INFO 8096 --- [telegramBot] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-05-31T03:49:19.760+05:00  INFO 8096 --- [telegramBot] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-05-31T03:49:20.406+05:00  INFO 8096 --- [telegramBot] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-05-31T03:49:20.414+05:00  INFO 8096 --- [telegramBot] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-05-31T03:49:20.414+05:00  INFO 8096 --- [telegramBot] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-05-31T03:49:20.441+05:00  INFO 8096 --- [telegramBot] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-05-31T03:49:20.441+05:00  INFO 8096 --- [telegramBot] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 680 ms
+2024-05-31T03:49:21.281+05:00  INFO 8096 --- [telegramBot] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-05-31T03:49:21.301+05:00  INFO 8096 --- [telegramBot] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-05-31T03:50:06.225+05:00  INFO 18696 --- [telegramBot] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-05-31T03:50:06.226+05:00  INFO 18696 --- [telegramBot] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-05-31T03:50:06.881+05:00  INFO 18696 --- [telegramBot] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-05-31T03:50:06.889+05:00  INFO 18696 --- [telegramBot] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-05-31T03:50:06.890+05:00  INFO 18696 --- [telegramBot] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-05-31T03:50:06.920+05:00  INFO 18696 --- [telegramBot] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-05-31T03:50:06.920+05:00  INFO 18696 --- [telegramBot] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 694 ms
+2024-05-31T03:50:07.770+05:00  INFO 18696 --- [telegramBot] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-05-31T03:50:07.790+05:00  INFO 18696 --- [telegramBot] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-05-31T03:52:59.847+05:00  INFO 19536 --- [telegramBot] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-05-31T03:52:59.848+05:00  INFO 19536 --- [telegramBot] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-05-31T03:53:00.521+05:00  INFO 19536 --- [telegramBot] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-05-31T03:53:00.531+05:00  INFO 19536 --- [telegramBot] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-05-31T03:53:00.531+05:00  INFO 19536 --- [telegramBot] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-05-31T03:53:00.569+05:00  INFO 19536 --- [telegramBot] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-05-31T03:53:00.570+05:00  INFO 19536 --- [telegramBot] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 722 ms
+2024-05-31T03:53:01.518+05:00  INFO 19536 --- [telegramBot] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-05-31T03:53:01.539+05:00  INFO 19536 --- [telegramBot] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-05-31T03:54:20.161+05:00  INFO 9664 --- [telegramBot] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-05-31T03:54:20.162+05:00  INFO 9664 --- [telegramBot] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-05-31T03:54:20.793+05:00  INFO 9664 --- [telegramBot] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-05-31T03:54:20.801+05:00  INFO 9664 --- [telegramBot] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-05-31T03:54:20.802+05:00  INFO 9664 --- [telegramBot] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-05-31T03:54:20.830+05:00  INFO 9664 --- [telegramBot] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-05-31T03:54:20.830+05:00  INFO 9664 --- [telegramBot] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 668 ms
+2024-05-31T03:54:21.752+05:00  INFO 9664 --- [telegramBot] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-05-31T03:54:21.773+05:00  INFO 9664 --- [telegramBot] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-05-31T03:55:09.355+05:00  INFO 6204 --- [telegramBot] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-05-31T03:55:09.356+05:00  INFO 6204 --- [telegramBot] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-05-31T03:55:10.105+05:00  INFO 6204 --- [telegramBot] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-05-31T03:55:10.114+05:00  INFO 6204 --- [telegramBot] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-05-31T03:55:10.115+05:00  INFO 6204 --- [telegramBot] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-05-31T03:55:10.143+05:00  INFO 6204 --- [telegramBot] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-05-31T03:55:10.143+05:00  INFO 6204 --- [telegramBot] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 787 ms
+2024-05-31T03:55:10.959+05:00  INFO 6204 --- [telegramBot] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-05-31T03:55:10.980+05:00  INFO 6204 --- [telegramBot] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-05-31T04:03:54.701+05:00  INFO 6992 --- [telegramBot] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-05-31T04:03:54.702+05:00  INFO 6992 --- [telegramBot] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-05-31T04:03:55.558+05:00  INFO 6992 --- [telegramBot] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-05-31T04:03:55.566+05:00  INFO 6992 --- [telegramBot] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-05-31T04:03:55.567+05:00  INFO 6992 --- [telegramBot] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-05-31T04:03:55.596+05:00  INFO 6992 --- [telegramBot] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-05-31T04:03:55.596+05:00  INFO 6992 --- [telegramBot] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 893 ms
+2024-05-31T04:03:56.463+05:00  INFO 6992 --- [telegramBot] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-05-31T04:03:56.492+05:00  INFO 6992 --- [telegramBot] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-05-31T04:05:16.853+05:00  INFO 16508 --- [telegramBot] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-05-31T04:05:16.854+05:00  INFO 16508 --- [telegramBot] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-05-31T04:05:17.464+05:00  INFO 16508 --- [telegramBot] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-05-31T04:05:17.471+05:00  INFO 16508 --- [telegramBot] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-05-31T04:05:17.472+05:00  INFO 16508 --- [telegramBot] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-05-31T04:05:17.500+05:00  INFO 16508 --- [telegramBot] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-05-31T04:05:17.501+05:00  INFO 16508 --- [telegramBot] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 647 ms
+2024-05-31T04:05:18.333+05:00  INFO 16508 --- [telegramBot] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-05-31T04:05:18.356+05:00  INFO 16508 --- [telegramBot] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-05-31T04:06:06.470+05:00  INFO 7936 --- [telegramBot] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-05-31T04:06:06.471+05:00  INFO 7936 --- [telegramBot] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-05-31T04:06:07.084+05:00  INFO 7936 --- [telegramBot] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-05-31T04:06:07.091+05:00  INFO 7936 --- [telegramBot] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-05-31T04:06:07.092+05:00  INFO 7936 --- [telegramBot] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-05-31T04:06:07.117+05:00  INFO 7936 --- [telegramBot] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-05-31T04:06:07.117+05:00  INFO 7936 --- [telegramBot] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 646 ms
+2024-05-31T04:06:07.923+05:00  INFO 7936 --- [telegramBot] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-05-31T04:06:07.946+05:00  INFO 7936 --- [telegramBot] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-05-31T04:06:14.967+05:00 ERROR 7936 --- [telegramBot] [schedule_aitubot Telegram Executor] o.t.t.u.DefaultBotSession                : current thread is not owner
 
-java.lang.ClassCastException: class java.util.Collections$SynchronizedRandomAccessList cannot be cast to class java.util.ArrayList (java.util.Collections$SynchronizedRandomAccessList and java.util.ArrayList are in module java.base of loader 'bootstrap')
-	at com.example.telegrambot.service.BotService.AddObject(BotService.java:233) ~[classes/:na]
-	at com.example.telegrambot.service.BotService.onUpdateReceived(BotService.java:94) ~[classes/:na]
+java.lang.IllegalMonitorStateException: current thread is not owner
+	at java.base/java.lang.Object.wait0(Native Method) ~[na:na]
+	at java.base/java.lang.Object.wait(Object.java:366) ~[na:na]
+	at com.example.telegrambot.service.BotService$SMSandButtons.deleteMessage(BotService.java:480) ~[classes/:na]
+	at com.example.telegrambot.service.BotService.onUpdateReceived(BotService.java:98) ~[classes/:na]
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596) ~[na:na]
 	at org.telegram.telegrambots.meta.generics.LongPollingBot.onUpdatesReceived(LongPollingBot.java:27) ~[telegrambots-meta-6.9.7.1.jar:na]
 	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$HandlerThread.run(DefaultBotSession.java:312) ~[telegrambots-6.9.7.1.jar:na]
 
-2024-05-30T15:12:16.623+05:00  INFO 15696 --- [telegramBot] [restartedMain] c.e.telegrambot.TelegramBotApplication   : Starting TelegramBotApplication using Java 21.0.1 with PID 15696 (C:\Users\USER\IdeaProjects\telegramBot\target\classes started by USER in C:\Users\USER\IdeaProjects\telegramBot)
-2024-05-30T15:12:16.624+05:00  INFO 15696 --- [telegramBot] [restartedMain] c.e.telegrambot.TelegramBotApplication   : No active profile set, falling back to 1 default profile: "default"
-2024-05-30T15:12:16.654+05:00  INFO 15696 --- [telegramBot] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2024-05-30T15:12:16.654+05:00  INFO 15696 --- [telegramBot] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2024-05-30T15:12:17.296+05:00  INFO 15696 --- [telegramBot] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-05-30T15:12:17.305+05:00  INFO 15696 --- [telegramBot] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-05-30T15:12:17.305+05:00  INFO 15696 --- [telegramBot] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
-2024-05-30T15:12:17.333+05:00  INFO 15696 --- [telegramBot] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-05-30T15:12:17.333+05:00  INFO 15696 --- [telegramBot] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 678 ms
-2024-05-30T15:12:18.297+05:00  INFO 15696 --- [telegramBot] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2024-05-30T15:12:18.319+05:00  INFO 15696 --- [telegramBot] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
-2024-05-30T15:12:18.431+05:00  INFO 15696 --- [telegramBot] [restartedMain] c.e.telegrambot.TelegramBotApplication   : Started TelegramBotApplication in 2.063 seconds (process running for 2.464)
-2024-05-30T15:12:32.284+05:00 ERROR 15696 --- [telegramBot] [schedule_aitubot Telegram Executor] o.t.t.u.DefaultBotSession                : Cannot invoke "String.hashCode()" because "<local7>" is null
+2024-05-31T04:06:36.894+05:00  INFO 7936 --- [telegramBot] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 3 class path changes (0 additions, 3 deletions, 0 modifications)
+2024-05-31T04:06:37.146+05:00  INFO 7936 --- [telegramBot] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-05-31T04:06:37.147+05:00  INFO 7936 --- [telegramBot] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-05-31T04:06:37.148+05:00  INFO 7936 --- [telegramBot] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-05-31T04:06:37.166+05:00  INFO 7936 --- [telegramBot] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-05-31T04:06:37.167+05:00  INFO 7936 --- [telegramBot] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 216 ms
+2024-05-31T04:06:37.182+05:00  WARN 7936 --- [telegramBot] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'createBot' defined in file [C:\Users\USER\IdeaProjects\telegramBot\target\classes\com\example\telegrambot\config\CreateBot.class]: Post-processing of merged bean definition failed
+2024-05-31T04:06:37.183+05:00  INFO 7936 --- [telegramBot] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2024-05-31T04:06:37.190+05:00  INFO 7936 --- [telegramBot] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
 
-java.lang.NullPointerException: Cannot invoke "String.hashCode()" because "<local7>" is null
-	at com.example.telegrambot.service.BotService.onUpdateReceived(BotService.java:93) ~[classes/:na]
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-05-31T04:06:37.217+05:00 ERROR 7936 --- [telegramBot] [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'createBot' defined in file [C:\Users\USER\IdeaProjects\telegramBot\target\classes\com\example\telegrambot\config\CreateBot.class]: Post-processing of merged bean definition failed
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:577) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:962) ~[spring-context-6.1.6.jar:6.1.6]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624) ~[spring-context-6.1.6.jar:6.1.6]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) ~[spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456) ~[spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334) ~[spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343) ~[spring-boot-3.2.5.jar:3.2.5]
+	at com.example.telegrambot.TelegramBotApplication.main(TelegramBotApplication.java:10) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.2.5.jar:3.2.5]
+Caused by: java.lang.IllegalStateException: Failed to introspect Class [com.example.telegrambot.config.CreateBot] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@de16b49]
+	at org.springframework.util.ReflectionUtils.getDeclaredFields(ReflectionUtils.java:757) ~[spring-core-6.1.6.jar:6.1.6]
+	at org.springframework.util.ReflectionUtils.doWithLocalFields(ReflectionUtils.java:689) ~[spring-core-6.1.6.jar:6.1.6]
+	at org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor.buildPersistenceMetadata(PersistenceAnnotationBeanPostProcessor.java:436) ~[spring-orm-6.1.6.jar:6.1.6]
+	at org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor.findPersistenceMetadata(PersistenceAnnotationBeanPostProcessor.java:417) ~[spring-orm-6.1.6.jar:6.1.6]
+	at org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor.findInjectionMetadata(PersistenceAnnotationBeanPostProcessor.java:376) ~[spring-orm-6.1.6.jar:6.1.6]
+	at org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor.postProcessMergedBeanDefinition(PersistenceAnnotationBeanPostProcessor.java:353) ~[spring-orm-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyMergedBeanDefinitionPostProcessors(AbstractAutowireCapableBeanFactory.java:1085) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:574) ~[spring-beans-6.1.6.jar:6.1.6]
+	... 18 common frames omitted
+Caused by: java.lang.NoClassDefFoundError: com/example/telegrambot/service/BotService
+	at java.base/java.lang.Class.getDeclaredFields0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.privateGetDeclaredFields(Class.java:3473) ~[na:na]
+	at java.base/java.lang.Class.getDeclaredFields(Class.java:2542) ~[na:na]
+	at org.springframework.util.ReflectionUtils.getDeclaredFields(ReflectionUtils.java:752) ~[spring-core-6.1.6.jar:6.1.6]
+	... 25 common frames omitted
+Caused by: java.lang.ClassNotFoundException: com.example.telegrambot.service.BotService
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526) ~[na:na]
+	at java.base/java.lang.Class.forName0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:534) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:513) ~[na:na]
+	at org.springframework.boot.devtools.restart.classloader.RestartClassLoader.loadClass(RestartClassLoader.java:121) ~[spring-boot-devtools-3.2.5.jar:3.2.5]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526) ~[na:na]
+	... 29 common frames omitted
+
+2024-05-31T04:06:38.779+05:00  INFO 7936 --- [telegramBot] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-05-31T04:06:38.780+05:00  INFO 7936 --- [telegramBot] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-05-31T04:06:38.780+05:00  INFO 7936 --- [telegramBot] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-05-31T04:06:38.789+05:00  INFO 7936 --- [telegramBot] [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2024-05-31T04:06:38.789+05:00  INFO 7936 --- [telegramBot] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 125 ms
+2024-05-31T04:06:39.128+05:00  INFO 7936 --- [telegramBot] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-05-31T04:06:39.133+05:00  INFO 7936 --- [telegramBot] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-05-31T04:06:39.230+05:00  INFO 7936 --- [telegramBot] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-05-31T04:06:39.505+05:00 ERROR 7936 --- [telegramBot] [schedule_aitubot Telegram Connection] o.t.t.u.DefaultBotSession                : Error executing org.telegram.telegrambots.meta.api.methods.updates.GetUpdates query: [409] Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error executing org.telegram.telegrambots.meta.api.methods.updates.GetUpdates query: [409] Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+	at org.telegram.telegrambots.meta.api.methods.PartialBotApiMethod.deserializeResponseInternal(PartialBotApiMethod.java:54) ~[telegrambots-meta-6.9.7.1.jar:na]
+	at org.telegram.telegrambots.meta.api.methods.PartialBotApiMethod.deserializeResponseArray(PartialBotApiMethod.java:39) ~[telegrambots-meta-6.9.7.1.jar:na]
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:86) ~[telegrambots-meta-6.9.7.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:258) ~[telegrambots-6.9.7.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:188) ~[telegrambots-6.9.7.1.jar:na]
+
+2024-05-31T04:06:43.103+05:00 ERROR 7936 --- [telegramBot] [schedule_aitubot Telegram Connection] o.t.t.u.DefaultBotSession                : Error executing org.telegram.telegrambots.meta.api.methods.updates.GetUpdates query: [409] Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error executing org.telegram.telegrambots.meta.api.methods.updates.GetUpdates query: [409] Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+	at org.telegram.telegrambots.meta.api.methods.PartialBotApiMethod.deserializeResponseInternal(PartialBotApiMethod.java:54) ~[telegrambots-meta-6.9.7.1.jar:na]
+	at org.telegram.telegrambots.meta.api.methods.PartialBotApiMethod.deserializeResponseArray(PartialBotApiMethod.java:39) ~[telegrambots-meta-6.9.7.1.jar:na]
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:86) ~[telegrambots-meta-6.9.7.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:258) ~[telegrambots-6.9.7.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:188) ~[telegrambots-6.9.7.1.jar:na]
+
+2024-05-31T04:06:43.712+05:00 ERROR 7936 --- [telegramBot] [schedule_aitubot Telegram Connection] o.t.t.u.DefaultBotSession                : Error executing org.telegram.telegrambots.meta.api.methods.updates.GetUpdates query: [409] Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error executing org.telegram.telegrambots.meta.api.methods.updates.GetUpdates query: [409] Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+	at org.telegram.telegrambots.meta.api.methods.PartialBotApiMethod.deserializeResponseInternal(PartialBotApiMethod.java:54) ~[telegrambots-meta-6.9.7.1.jar:na]
+	at org.telegram.telegrambots.meta.api.methods.PartialBotApiMethod.deserializeResponseArray(PartialBotApiMethod.java:39) ~[telegrambots-meta-6.9.7.1.jar:na]
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:86) ~[telegrambots-meta-6.9.7.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:258) ~[telegrambots-6.9.7.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:188) ~[telegrambots-6.9.7.1.jar:na]
+
+2024-05-31T04:06:47.309+05:00 ERROR 7936 --- [telegramBot] [schedule_aitubot Telegram Connection] o.t.t.u.DefaultBotSession                : Error executing org.telegram.telegrambots.meta.api.methods.updates.GetUpdates query: [409] Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error executing org.telegram.telegrambots.meta.api.methods.updates.GetUpdates query: [409] Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+	at org.telegram.telegrambots.meta.api.methods.PartialBotApiMethod.deserializeResponseInternal(PartialBotApiMethod.java:54) ~[telegrambots-meta-6.9.7.1.jar:na]
+	at org.telegram.telegrambots.meta.api.methods.PartialBotApiMethod.deserializeResponseArray(PartialBotApiMethod.java:39) ~[telegrambots-meta-6.9.7.1.jar:na]
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:86) ~[telegrambots-meta-6.9.7.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:258) ~[telegrambots-6.9.7.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:188) ~[telegrambots-6.9.7.1.jar:na]
+
+2024-05-31T04:06:47.907+05:00 ERROR 7936 --- [telegramBot] [schedule_aitubot Telegram Connection] o.t.t.u.DefaultBotSession                : Error executing org.telegram.telegrambots.meta.api.methods.updates.GetUpdates query: [409] Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error executing org.telegram.telegrambots.meta.api.methods.updates.GetUpdates query: [409] Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+	at org.telegram.telegrambots.meta.api.methods.PartialBotApiMethod.deserializeResponseInternal(PartialBotApiMethod.java:54) ~[telegrambots-meta-6.9.7.1.jar:na]
+	at org.telegram.telegrambots.meta.api.methods.PartialBotApiMethod.deserializeResponseArray(PartialBotApiMethod.java:39) ~[telegrambots-meta-6.9.7.1.jar:na]
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:86) ~[telegrambots-meta-6.9.7.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:258) ~[telegrambots-6.9.7.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:188) ~[telegrambots-6.9.7.1.jar:na]
+
+2024-05-31T04:06:51.515+05:00 ERROR 7936 --- [telegramBot] [schedule_aitubot Telegram Connection] o.t.t.u.DefaultBotSession                : Error executing org.telegram.telegrambots.meta.api.methods.updates.GetUpdates query: [409] Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error executing org.telegram.telegrambots.meta.api.methods.updates.GetUpdates query: [409] Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+	at org.telegram.telegrambots.meta.api.methods.PartialBotApiMethod.deserializeResponseInternal(PartialBotApiMethod.java:54) ~[telegrambots-meta-6.9.7.1.jar:na]
+	at org.telegram.telegrambots.meta.api.methods.PartialBotApiMethod.deserializeResponseArray(PartialBotApiMethod.java:39) ~[telegrambots-meta-6.9.7.1.jar:na]
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:86) ~[telegrambots-meta-6.9.7.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:258) ~[telegrambots-6.9.7.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:188) ~[telegrambots-6.9.7.1.jar:na]
+
+2024-05-31T04:06:52.111+05:00 ERROR 7936 --- [telegramBot] [schedule_aitubot Telegram Connection] o.t.t.u.DefaultBotSession                : Error executing org.telegram.telegrambots.meta.api.methods.updates.GetUpdates query: [409] Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error executing org.telegram.telegrambots.meta.api.methods.updates.GetUpdates query: [409] Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+	at org.telegram.telegrambots.meta.api.methods.PartialBotApiMethod.deserializeResponseInternal(PartialBotApiMethod.java:54) ~[telegrambots-meta-6.9.7.1.jar:na]
+	at org.telegram.telegrambots.meta.api.methods.PartialBotApiMethod.deserializeResponseArray(PartialBotApiMethod.java:39) ~[telegrambots-meta-6.9.7.1.jar:na]
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:86) ~[telegrambots-meta-6.9.7.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:258) ~[telegrambots-6.9.7.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:188) ~[telegrambots-6.9.7.1.jar:na]
+
+2024-05-31T04:06:55.702+05:00 ERROR 7936 --- [telegramBot] [schedule_aitubot Telegram Connection] o.t.t.u.DefaultBotSession                : Error executing org.telegram.telegrambots.meta.api.methods.updates.GetUpdates query: [409] Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error executing org.telegram.telegrambots.meta.api.methods.updates.GetUpdates query: [409] Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+	at org.telegram.telegrambots.meta.api.methods.PartialBotApiMethod.deserializeResponseInternal(PartialBotApiMethod.java:54) ~[telegrambots-meta-6.9.7.1.jar:na]
+	at org.telegram.telegrambots.meta.api.methods.PartialBotApiMethod.deserializeResponseArray(PartialBotApiMethod.java:39) ~[telegrambots-meta-6.9.7.1.jar:na]
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:86) ~[telegrambots-meta-6.9.7.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:258) ~[telegrambots-6.9.7.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:188) ~[telegrambots-6.9.7.1.jar:na]
+
+2024-05-31T04:06:56.302+05:00 ERROR 7936 --- [telegramBot] [schedule_aitubot Telegram Connection] o.t.t.u.DefaultBotSession                : Error executing org.telegram.telegrambots.meta.api.methods.updates.GetUpdates query: [409] Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error executing org.telegram.telegrambots.meta.api.methods.updates.GetUpdates query: [409] Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+	at org.telegram.telegrambots.meta.api.methods.PartialBotApiMethod.deserializeResponseInternal(PartialBotApiMethod.java:54) ~[telegrambots-meta-6.9.7.1.jar:na]
+	at org.telegram.telegrambots.meta.api.methods.PartialBotApiMethod.deserializeResponseArray(PartialBotApiMethod.java:39) ~[telegrambots-meta-6.9.7.1.jar:na]
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:86) ~[telegrambots-meta-6.9.7.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:258) ~[telegrambots-6.9.7.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:188) ~[telegrambots-6.9.7.1.jar:na]
+
+2024-05-31T04:07:00.599+05:00  INFO 12028 --- [telegramBot] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-05-31T04:07:00.600+05:00  INFO 12028 --- [telegramBot] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-05-31T04:07:01.205+05:00  INFO 12028 --- [telegramBot] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-05-31T04:07:01.213+05:00  INFO 12028 --- [telegramBot] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-05-31T04:07:01.215+05:00  INFO 12028 --- [telegramBot] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-05-31T04:07:01.247+05:00  INFO 12028 --- [telegramBot] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-05-31T04:07:01.247+05:00  INFO 12028 --- [telegramBot] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 646 ms
+2024-05-31T04:07:02.134+05:00  INFO 12028 --- [telegramBot] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-05-31T04:07:02.158+05:00  INFO 12028 --- [telegramBot] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-05-31T04:07:22.709+05:00  INFO 10544 --- [telegramBot] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-05-31T04:07:22.710+05:00  INFO 10544 --- [telegramBot] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-05-31T04:07:23.413+05:00  INFO 10544 --- [telegramBot] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-05-31T04:07:23.422+05:00  INFO 10544 --- [telegramBot] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-05-31T04:07:23.423+05:00  INFO 10544 --- [telegramBot] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-05-31T04:07:23.458+05:00  INFO 10544 --- [telegramBot] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-05-31T04:07:23.458+05:00  INFO 10544 --- [telegramBot] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 747 ms
+2024-05-31T04:07:24.449+05:00  INFO 10544 --- [telegramBot] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-05-31T04:07:24.468+05:00  INFO 10544 --- [telegramBot] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-05-31T04:07:39.207+05:00 ERROR 10544 --- [telegramBot] [schedule_aitubot Telegram Executor] o.t.t.u.DefaultBotSession                : Error executing org.telegram.telegrambots.meta.api.methods.updatingmessages.DeleteMessage query: [400] Bad Request: message to delete not found
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error executing org.telegram.telegrambots.meta.api.methods.updatingmessages.DeleteMessage query: [400] Bad Request: message to delete not found
+	at org.telegram.telegrambots.meta.api.methods.PartialBotApiMethod.deserializeResponseInternal(PartialBotApiMethod.java:54) ~[telegrambots-meta-6.9.7.1.jar:na]
+	at org.telegram.telegrambots.meta.api.methods.PartialBotApiMethod.deserializeResponse(PartialBotApiMethod.java:34) ~[telegrambots-meta-6.9.7.1.jar:na]
+	at org.telegram.telegrambots.meta.api.methods.botapimethods.BotApiMethodBoolean.deserializeResponse(BotApiMethodBoolean.java:19) ~[telegrambots-meta-6.9.7.1.jar:na]
+	at org.telegram.telegrambots.meta.api.methods.botapimethods.BotApiMethodBoolean.deserializeResponse(BotApiMethodBoolean.java:14) ~[telegrambots-meta-6.9.7.1.jar:na]
+	at org.telegram.telegrambots.bots.DefaultAbsSender.sendApiMethod(DefaultAbsSender.java:1182) ~[telegrambots-6.9.7.1.jar:na]
+	at org.telegram.telegrambots.meta.bots.AbsSender.execute(AbsSender.java:61) ~[telegrambots-meta-6.9.7.1.jar:na]
+	at com.example.telegrambot.service.BotService$SMSandButtons.deleteMessage(BotService.java:481) ~[classes/:na]
+	at com.example.telegrambot.service.BotService.onUpdateReceived(BotService.java:98) ~[classes/:na]
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596) ~[na:na]
 	at org.telegram.telegrambots.meta.generics.LongPollingBot.onUpdatesReceived(LongPollingBot.java:27) ~[telegrambots-meta-6.9.7.1.jar:na]
 	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$HandlerThread.run(DefaultBotSession.java:312) ~[telegrambots-6.9.7.1.jar:na]
 
-2024-05-30T15:12:37.127+05:00 ERROR 15696 --- [telegramBot] [schedule_aitubot Telegram Executor] o.t.t.u.DefaultBotSession                : Cannot invoke "String.hashCode()" because "<local7>" is null
+2024-05-31T04:07:43.157+05:00 ERROR 10544 --- [telegramBot] [schedule_aitubot Telegram Executor] o.t.t.u.DefaultBotSession                : Error executing org.telegram.telegrambots.meta.api.methods.updatingmessages.DeleteMessage query: [400] Bad Request: message to delete not found
 
-java.lang.NullPointerException: Cannot invoke "String.hashCode()" because "<local7>" is null
-	at com.example.telegrambot.service.BotService.onUpdateReceived(BotService.java:93) ~[classes/:na]
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error executing org.telegram.telegrambots.meta.api.methods.updatingmessages.DeleteMessage query: [400] Bad Request: message to delete not found
+	at org.telegram.telegrambots.meta.api.methods.PartialBotApiMethod.deserializeResponseInternal(PartialBotApiMethod.java:54) ~[telegrambots-meta-6.9.7.1.jar:na]
+	at org.telegram.telegrambots.meta.api.methods.PartialBotApiMethod.deserializeResponse(PartialBotApiMethod.java:34) ~[telegrambots-meta-6.9.7.1.jar:na]
+	at org.telegram.telegrambots.meta.api.methods.botapimethods.BotApiMethodBoolean.deserializeResponse(BotApiMethodBoolean.java:19) ~[telegrambots-meta-6.9.7.1.jar:na]
+	at org.telegram.telegrambots.meta.api.methods.botapimethods.BotApiMethodBoolean.deserializeResponse(BotApiMethodBoolean.java:14) ~[telegrambots-meta-6.9.7.1.jar:na]
+	at org.telegram.telegrambots.bots.DefaultAbsSender.sendApiMethod(DefaultAbsSender.java:1182) ~[telegrambots-6.9.7.1.jar:na]
+	at org.telegram.telegrambots.meta.bots.AbsSender.execute(AbsSender.java:61) ~[telegrambots-meta-6.9.7.1.jar:na]
+	at com.example.telegrambot.service.BotService$SMSandButtons.deleteMessage(BotService.java:481) ~[classes/:na]
+	at com.example.telegrambot.service.BotService.onUpdateReceived(BotService.java:98) ~[classes/:na]
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596) ~[na:na]
 	at org.telegram.telegrambots.meta.generics.LongPollingBot.onUpdatesReceived(LongPollingBot.java:27) ~[telegrambots-meta-6.9.7.1.jar:na]
 	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$HandlerThread.run(DefaultBotSession.java:312) ~[telegrambots-6.9.7.1.jar:na]
 
-2024-05-30T15:13:22.652+05:00  INFO 852 --- [telegramBot] [restartedMain] c.e.telegrambot.TelegramBotApplication   : Starting TelegramBotApplication using Java 21.0.1 with PID 852 (C:\Users\USER\IdeaProjects\telegramBot\target\classes started by USER in C:\Users\USER\IdeaProjects\telegramBot)
-2024-05-30T15:13:22.653+05:00  INFO 852 --- [telegramBot] [restartedMain] c.e.telegrambot.TelegramBotApplication   : No active profile set, falling back to 1 default profile: "default"
-2024-05-30T15:13:22.687+05:00  INFO 852 --- [telegramBot] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2024-05-30T15:13:22.687+05:00  INFO 852 --- [telegramBot] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2024-05-30T15:13:23.403+05:00  INFO 852 --- [telegramBot] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-05-30T15:13:23.414+05:00  INFO 852 --- [telegramBot] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-05-30T15:13:23.414+05:00  INFO 852 --- [telegramBot] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
-2024-05-30T15:13:23.440+05:00  INFO 852 --- [telegramBot] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-05-30T15:13:23.441+05:00  INFO 852 --- [telegramBot] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 754 ms
-2024-05-30T15:13:24.274+05:00  INFO 852 --- [telegramBot] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2024-05-30T15:13:24.295+05:00  INFO 852 --- [telegramBot] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
-2024-05-30T15:13:24.404+05:00  INFO 852 --- [telegramBot] [restartedMain] c.e.telegrambot.TelegramBotApplication   : Started TelegramBotApplication in 2.026 seconds (process running for 2.58)
-2024-05-30T15:13:28.120+05:00 ERROR 852 --- [telegramBot] [schedule_aitubot Telegram Executor] o.t.t.u.DefaultBotSession                : Cannot invoke "String.hashCode()" because "<local7>" is null
+2024-05-31T04:09:17.818+05:00  INFO 14392 --- [telegramBot] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-05-31T04:09:17.819+05:00  INFO 14392 --- [telegramBot] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-05-31T04:09:18.632+05:00  INFO 14392 --- [telegramBot] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-05-31T04:09:18.647+05:00  INFO 14392 --- [telegramBot] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-05-31T04:09:18.647+05:00  INFO 14392 --- [telegramBot] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-05-31T04:09:18.697+05:00  INFO 14392 --- [telegramBot] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-05-31T04:09:18.697+05:00  INFO 14392 --- [telegramBot] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 877 ms
+2024-05-31T04:09:19.545+05:00  INFO 14392 --- [telegramBot] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-05-31T04:09:19.565+05:00  INFO 14392 --- [telegramBot] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-05-31T04:09:37.473+05:00 ERROR 14392 --- [telegramBot] [schedule_aitubot Telegram Executor] o.t.t.u.DefaultBotSession                : Error executing org.telegram.telegrambots.meta.api.methods.updatingmessages.DeleteMessage query: [400] Bad Request: message to delete not found
 
-java.lang.NullPointerException: Cannot invoke "String.hashCode()" because "<local7>" is null
-	at com.example.telegrambot.service.BotService.onUpdateReceived(BotService.java:93) ~[classes/:na]
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error executing org.telegram.telegrambots.meta.api.methods.updatingmessages.DeleteMessage query: [400] Bad Request: message to delete not found
+	at org.telegram.telegrambots.meta.api.methods.PartialBotApiMethod.deserializeResponseInternal(PartialBotApiMethod.java:54) ~[telegrambots-meta-6.9.7.1.jar:na]
+	at org.telegram.telegrambots.meta.api.methods.PartialBotApiMethod.deserializeResponse(PartialBotApiMethod.java:34) ~[telegrambots-meta-6.9.7.1.jar:na]
+	at org.telegram.telegrambots.meta.api.methods.botapimethods.BotApiMethodBoolean.deserializeResponse(BotApiMethodBoolean.java:19) ~[telegrambots-meta-6.9.7.1.jar:na]
+	at org.telegram.telegrambots.meta.api.methods.botapimethods.BotApiMethodBoolean.deserializeResponse(BotApiMethodBoolean.java:14) ~[telegrambots-meta-6.9.7.1.jar:na]
+	at org.telegram.telegrambots.bots.DefaultAbsSender.sendApiMethod(DefaultAbsSender.java:1182) ~[telegrambots-6.9.7.1.jar:na]
+	at org.telegram.telegrambots.meta.bots.AbsSender.execute(AbsSender.java:61) ~[telegrambots-meta-6.9.7.1.jar:na]
+	at com.example.telegrambot.service.BotService$SMSandButtons.deleteMessage(BotService.java:483) ~[classes/:na]
+	at com.example.telegrambot.service.BotService.onUpdateReceived(BotService.java:98) ~[classes/:na]
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596) ~[na:na]
 	at org.telegram.telegrambots.meta.generics.LongPollingBot.onUpdatesReceived(LongPollingBot.java:27) ~[telegrambots-meta-6.9.7.1.jar:na]
 	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$HandlerThread.run(DefaultBotSession.java:312) ~[telegrambots-6.9.7.1.jar:na]
 
-2024-05-30T18:32:45.188+05:00  INFO 12876 --- [telegramBot] [restartedMain] c.e.telegrambot.TelegramBotApplication   : Starting TelegramBotApplication using Java 21.0.1 with PID 12876 (C:\Users\USER\IdeaProjects\telegramBot\target\classes started by USER in C:\Users\USER\IdeaProjects\telegramBot)
-2024-05-30T18:32:45.188+05:00  INFO 12876 --- [telegramBot] [restartedMain] c.e.telegrambot.TelegramBotApplication   : No active profile set, falling back to 1 default profile: "default"
-2024-05-30T18:32:45.215+05:00  INFO 12876 --- [telegramBot] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2024-05-30T18:32:45.215+05:00  INFO 12876 --- [telegramBot] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2024-05-30T18:32:46.065+05:00  INFO 12876 --- [telegramBot] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-05-30T18:32:46.081+05:00  INFO 12876 --- [telegramBot] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-05-30T18:32:46.081+05:00  INFO 12876 --- [telegramBot] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
-2024-05-30T18:32:46.112+05:00  INFO 12876 --- [telegramBot] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-05-30T18:32:46.112+05:00  INFO 12876 --- [telegramBot] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 897 ms
-2024-05-30T18:32:47.425+05:00  INFO 12876 --- [telegramBot] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2024-05-30T18:32:47.472+05:00  INFO 12876 --- [telegramBot] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
-2024-05-30T18:32:47.644+05:00  INFO 12876 --- [telegramBot] [restartedMain] c.e.telegrambot.TelegramBotApplication   : Started TelegramBotApplication in 2.784 seconds (process running for 10.947)
-2024-05-30T18:32:50.884+05:00  INFO 12876 --- [telegramBot] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 9 class path changes (9 additions, 0 deletions, 0 modifications)
-2024-05-30T18:32:50.959+05:00  INFO 12876 --- [telegramBot] [restartedMain] c.e.telegrambot.TelegramBotApplication   : Starting TelegramBotApplication using Java 21.0.1 with PID 12876 (C:\Users\USER\IdeaProjects\telegramBot\target\classes started by USER in C:\Users\USER\IdeaProjects\telegramBot)
-2024-05-30T18:32:50.959+05:00  INFO 12876 --- [telegramBot] [restartedMain] c.e.telegrambot.TelegramBotApplication   : No active profile set, falling back to 1 default profile: "default"
-2024-05-30T18:32:51.117+05:00  INFO 12876 --- [telegramBot] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-05-30T18:32:51.117+05:00  INFO 12876 --- [telegramBot] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-05-30T18:32:51.117+05:00  INFO 12876 --- [telegramBot] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
-2024-05-30T18:32:51.117+05:00  INFO 12876 --- [telegramBot] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-05-30T18:32:51.117+05:00  INFO 12876 --- [telegramBot] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 158 ms
-2024-05-30T18:32:51.757+05:00  INFO 12876 --- [telegramBot] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2024-05-30T18:32:51.773+05:00  INFO 12876 --- [telegramBot] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
-2024-05-30T18:32:51.945+05:00  INFO 12876 --- [telegramBot] [restartedMain] c.e.telegrambot.TelegramBotApplication   : Started TelegramBotApplication in 1.005 seconds (process running for 15.242)
-2024-05-30T18:32:51.945+05:00  INFO 12876 --- [telegramBot] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
-2024-05-30T18:32:52.358+05:00 ERROR 12876 --- [telegramBot] [schedule_aitubot Telegram Connection] o.t.t.u.DefaultBotSession                : Error executing org.telegram.telegrambots.meta.api.methods.updates.GetUpdates query: [409] Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-05-31T04:17:56.598+05:00  INFO 10264 --- [telegramBot] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-05-31T04:17:56.599+05:00  INFO 10264 --- [telegramBot] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-05-31T04:17:57.221+05:00  INFO 10264 --- [telegramBot] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-05-31T04:17:57.230+05:00  INFO 10264 --- [telegramBot] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-05-31T04:17:57.231+05:00  INFO 10264 --- [telegramBot] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-05-31T04:17:57.261+05:00  INFO 10264 --- [telegramBot] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-05-31T04:17:57.261+05:00  INFO 10264 --- [telegramBot] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 662 ms
+2024-05-31T04:17:58.189+05:00  INFO 10264 --- [telegramBot] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-05-31T04:17:58.212+05:00  INFO 10264 --- [telegramBot] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-05-31T04:18:59.071+05:00  INFO 6264 --- [telegramBot] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-05-31T04:18:59.073+05:00  INFO 6264 --- [telegramBot] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-05-31T04:18:59.785+05:00  INFO 6264 --- [telegramBot] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-05-31T04:18:59.794+05:00  INFO 6264 --- [telegramBot] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-05-31T04:18:59.794+05:00  INFO 6264 --- [telegramBot] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-05-31T04:18:59.823+05:00  INFO 6264 --- [telegramBot] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-05-31T04:18:59.824+05:00  INFO 6264 --- [telegramBot] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 751 ms
+2024-05-31T04:19:00.715+05:00  INFO 6264 --- [telegramBot] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-05-31T04:19:00.737+05:00  INFO 6264 --- [telegramBot] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-05-31T04:20:34.738+05:00  INFO 6264 --- [telegramBot] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 3 class path changes (0 additions, 3 deletions, 0 modifications)
+2024-05-31T04:20:34.958+05:00  INFO 6264 --- [telegramBot] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-05-31T04:20:34.959+05:00  INFO 6264 --- [telegramBot] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-05-31T04:20:34.959+05:00  INFO 6264 --- [telegramBot] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-05-31T04:20:34.971+05:00  INFO 6264 --- [telegramBot] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-05-31T04:20:34.971+05:00  INFO 6264 --- [telegramBot] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 175 ms
+2024-05-31T04:20:34.980+05:00  WARN 6264 --- [telegramBot] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'createBot' defined in file [C:\Users\USER\IdeaProjects\telegramBot\target\classes\com\example\telegrambot\config\CreateBot.class]: Post-processing of merged bean definition failed
+2024-05-31T04:20:34.980+05:00  INFO 6264 --- [telegramBot] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2024-05-31T04:20:34.984+05:00  INFO 6264 --- [telegramBot] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-05-31T04:20:34.998+05:00 ERROR 6264 --- [telegramBot] [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'createBot' defined in file [C:\Users\USER\IdeaProjects\telegramBot\target\classes\com\example\telegrambot\config\CreateBot.class]: Post-processing of merged bean definition failed
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:577) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:962) ~[spring-context-6.1.6.jar:6.1.6]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624) ~[spring-context-6.1.6.jar:6.1.6]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) ~[spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456) ~[spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334) ~[spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343) ~[spring-boot-3.2.5.jar:3.2.5]
+	at com.example.telegrambot.TelegramBotApplication.main(TelegramBotApplication.java:10) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.2.5.jar:3.2.5]
+Caused by: java.lang.IllegalStateException: Failed to introspect Class [com.example.telegrambot.config.CreateBot] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@622a188b]
+	at org.springframework.util.ReflectionUtils.getDeclaredFields(ReflectionUtils.java:757) ~[spring-core-6.1.6.jar:6.1.6]
+	at org.springframework.util.ReflectionUtils.doWithLocalFields(ReflectionUtils.java:689) ~[spring-core-6.1.6.jar:6.1.6]
+	at org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor.buildPersistenceMetadata(PersistenceAnnotationBeanPostProcessor.java:436) ~[spring-orm-6.1.6.jar:6.1.6]
+	at org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor.findPersistenceMetadata(PersistenceAnnotationBeanPostProcessor.java:417) ~[spring-orm-6.1.6.jar:6.1.6]
+	at org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor.findInjectionMetadata(PersistenceAnnotationBeanPostProcessor.java:376) ~[spring-orm-6.1.6.jar:6.1.6]
+	at org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor.postProcessMergedBeanDefinition(PersistenceAnnotationBeanPostProcessor.java:353) ~[spring-orm-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyMergedBeanDefinitionPostProcessors(AbstractAutowireCapableBeanFactory.java:1085) ~[spring-beans-6.1.6.jar:6.1.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:574) ~[spring-beans-6.1.6.jar:6.1.6]
+	... 18 common frames omitted
+Caused by: java.lang.NoClassDefFoundError: com/example/telegrambot/service/BotService
+	at java.base/java.lang.Class.getDeclaredFields0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.privateGetDeclaredFields(Class.java:3473) ~[na:na]
+	at java.base/java.lang.Class.getDeclaredFields(Class.java:2542) ~[na:na]
+	at org.springframework.util.ReflectionUtils.getDeclaredFields(ReflectionUtils.java:752) ~[spring-core-6.1.6.jar:6.1.6]
+	... 25 common frames omitted
+Caused by: java.lang.ClassNotFoundException: com.example.telegrambot.service.BotService
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526) ~[na:na]
+	at java.base/java.lang.Class.forName0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:534) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:513) ~[na:na]
+	at org.springframework.boot.devtools.restart.classloader.RestartClassLoader.loadClass(RestartClassLoader.java:121) ~[spring-boot-devtools-3.2.5.jar:3.2.5]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526) ~[na:na]
+	... 29 common frames omitted
+
+2024-05-31T04:20:36.553+05:00  INFO 6264 --- [telegramBot] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-05-31T04:20:36.554+05:00  INFO 6264 --- [telegramBot] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-05-31T04:20:36.554+05:00  INFO 6264 --- [telegramBot] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-05-31T04:20:36.566+05:00  INFO 6264 --- [telegramBot] [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2024-05-31T04:20:36.567+05:00  INFO 6264 --- [telegramBot] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 130 ms
+2024-05-31T04:20:36.906+05:00  INFO 6264 --- [telegramBot] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-05-31T04:20:36.912+05:00  INFO 6264 --- [telegramBot] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-05-31T04:20:37.007+05:00  INFO 6264 --- [telegramBot] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-05-31T04:20:37.265+05:00 ERROR 6264 --- [telegramBot] [schedule_aitubot Telegram Connection] o.t.t.u.DefaultBotSession                : Error executing org.telegram.telegrambots.meta.api.methods.updates.GetUpdates query: [409] Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
 
 org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error executing org.telegram.telegrambots.meta.api.methods.updates.GetUpdates query: [409] Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
 	at org.telegram.telegrambots.meta.api.methods.PartialBotApiMethod.deserializeResponseInternal(PartialBotApiMethod.java:54) ~[telegrambots-meta-6.9.7.1.jar:na]
@@ -160,7 +442,7 @@ org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error exe
 	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:258) ~[telegrambots-6.9.7.1.jar:na]
 	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:188) ~[telegrambots-6.9.7.1.jar:na]
 
-2024-05-30T18:32:56.042+05:00 ERROR 12876 --- [telegramBot] [schedule_aitubot Telegram Connection] o.t.t.u.DefaultBotSession                : Error executing org.telegram.telegrambots.meta.api.methods.updates.GetUpdates query: [409] Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-05-31T04:20:41.045+05:00 ERROR 6264 --- [telegramBot] [schedule_aitubot Telegram Connection] o.t.t.u.DefaultBotSession                : Error executing org.telegram.telegrambots.meta.api.methods.updates.GetUpdates query: [409] Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
 
 org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error executing org.telegram.telegrambots.meta.api.methods.updates.GetUpdates query: [409] Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
 	at org.telegram.telegrambots.meta.api.methods.PartialBotApiMethod.deserializeResponseInternal(PartialBotApiMethod.java:54) ~[telegrambots-meta-6.9.7.1.jar:na]
@@ -169,7 +451,7 @@ org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error exe
 	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:258) ~[telegrambots-6.9.7.1.jar:na]
 	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:188) ~[telegrambots-6.9.7.1.jar:na]
 
-2024-05-30T18:32:56.750+05:00 ERROR 12876 --- [telegramBot] [schedule_aitubot Telegram Connection] o.t.t.u.DefaultBotSession                : Error executing org.telegram.telegrambots.meta.api.methods.updates.GetUpdates query: [409] Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-05-31T04:20:41.646+05:00 ERROR 6264 --- [telegramBot] [schedule_aitubot Telegram Connection] o.t.t.u.DefaultBotSession                : Error executing org.telegram.telegrambots.meta.api.methods.updates.GetUpdates query: [409] Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
 
 org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error executing org.telegram.telegrambots.meta.api.methods.updates.GetUpdates query: [409] Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
 	at org.telegram.telegrambots.meta.api.methods.PartialBotApiMethod.deserializeResponseInternal(PartialBotApiMethod.java:54) ~[telegrambots-meta-6.9.7.1.jar:na]
@@ -178,7 +460,7 @@ org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error exe
 	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:258) ~[telegrambots-6.9.7.1.jar:na]
 	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:188) ~[telegrambots-6.9.7.1.jar:na]
 
-2024-05-30T18:33:00.764+05:00 ERROR 12876 --- [telegramBot] [schedule_aitubot Telegram Connection] o.t.t.u.DefaultBotSession                : Error executing org.telegram.telegrambots.meta.api.methods.updates.GetUpdates query: [409] Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-05-31T04:20:45.247+05:00 ERROR 6264 --- [telegramBot] [schedule_aitubot Telegram Connection] o.t.t.u.DefaultBotSession                : Error executing org.telegram.telegrambots.meta.api.methods.updates.GetUpdates query: [409] Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
 
 org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error executing org.telegram.telegrambots.meta.api.methods.updates.GetUpdates query: [409] Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
 	at org.telegram.telegrambots.meta.api.methods.PartialBotApiMethod.deserializeResponseInternal(PartialBotApiMethod.java:54) ~[telegrambots-meta-6.9.7.1.jar:na]
@@ -187,7 +469,7 @@ org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error exe
 	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:258) ~[telegrambots-6.9.7.1.jar:na]
 	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:188) ~[telegrambots-6.9.7.1.jar:na]
 
-2024-05-30T18:33:01.457+05:00 ERROR 12876 --- [telegramBot] [schedule_aitubot Telegram Connection] o.t.t.u.DefaultBotSession                : Error executing org.telegram.telegrambots.meta.api.methods.updates.GetUpdates query: [409] Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-05-31T04:20:45.833+05:00 ERROR 6264 --- [telegramBot] [schedule_aitubot Telegram Connection] o.t.t.u.DefaultBotSession                : Error executing org.telegram.telegrambots.meta.api.methods.updates.GetUpdates query: [409] Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
 
 org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error executing org.telegram.telegrambots.meta.api.methods.updates.GetUpdates query: [409] Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
 	at org.telegram.telegrambots.meta.api.methods.PartialBotApiMethod.deserializeResponseInternal(PartialBotApiMethod.java:54) ~[telegrambots-meta-6.9.7.1.jar:na]
@@ -196,7 +478,7 @@ org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error exe
 	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:258) ~[telegrambots-6.9.7.1.jar:na]
 	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:188) ~[telegrambots-6.9.7.1.jar:na]
 
-2024-05-30T18:33:05.156+05:00 ERROR 12876 --- [telegramBot] [schedule_aitubot Telegram Connection] o.t.t.u.DefaultBotSession                : Error executing org.telegram.telegrambots.meta.api.methods.updates.GetUpdates query: [409] Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-05-31T04:20:49.440+05:00 ERROR 6264 --- [telegramBot] [schedule_aitubot Telegram Connection] o.t.t.u.DefaultBotSession                : Error executing org.telegram.telegrambots.meta.api.methods.updates.GetUpdates query: [409] Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
 
 org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error executing org.telegram.telegrambots.meta.api.methods.updates.GetUpdates query: [409] Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
 	at org.telegram.telegrambots.meta.api.methods.PartialBotApiMethod.deserializeResponseInternal(PartialBotApiMethod.java:54) ~[telegrambots-meta-6.9.7.1.jar:na]
@@ -205,7 +487,7 @@ org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error exe
 	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:258) ~[telegrambots-6.9.7.1.jar:na]
 	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:188) ~[telegrambots-6.9.7.1.jar:na]
 
-2024-05-30T18:33:05.874+05:00 ERROR 12876 --- [telegramBot] [schedule_aitubot Telegram Connection] o.t.t.u.DefaultBotSession                : Error executing org.telegram.telegrambots.meta.api.methods.updates.GetUpdates query: [409] Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-05-31T04:20:50.035+05:00 ERROR 6264 --- [telegramBot] [schedule_aitubot Telegram Connection] o.t.t.u.DefaultBotSession                : Error executing org.telegram.telegrambots.meta.api.methods.updates.GetUpdates query: [409] Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
 
 org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error executing org.telegram.telegrambots.meta.api.methods.updates.GetUpdates query: [409] Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
 	at org.telegram.telegrambots.meta.api.methods.PartialBotApiMethod.deserializeResponseInternal(PartialBotApiMethod.java:54) ~[telegrambots-meta-6.9.7.1.jar:na]
@@ -214,150 +496,12 @@ org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error exe
 	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:258) ~[telegrambots-6.9.7.1.jar:na]
 	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:188) ~[telegrambots-6.9.7.1.jar:na]
 
-2024-05-30T18:33:09.560+05:00 ERROR 12876 --- [telegramBot] [schedule_aitubot Telegram Connection] o.t.t.u.DefaultBotSession                : Error executing org.telegram.telegrambots.meta.api.methods.updates.GetUpdates query: [409] Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
-
-org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error executing org.telegram.telegrambots.meta.api.methods.updates.GetUpdates query: [409] Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
-	at org.telegram.telegrambots.meta.api.methods.PartialBotApiMethod.deserializeResponseInternal(PartialBotApiMethod.java:54) ~[telegrambots-meta-6.9.7.1.jar:na]
-	at org.telegram.telegrambots.meta.api.methods.PartialBotApiMethod.deserializeResponseArray(PartialBotApiMethod.java:39) ~[telegrambots-meta-6.9.7.1.jar:na]
-	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:86) ~[telegrambots-meta-6.9.7.1.jar:na]
-	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:258) ~[telegrambots-6.9.7.1.jar:na]
-	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:188) ~[telegrambots-6.9.7.1.jar:na]
-
-2024-05-30T18:33:10.278+05:00 ERROR 12876 --- [telegramBot] [schedule_aitubot Telegram Connection] o.t.t.u.DefaultBotSession                : Error executing org.telegram.telegrambots.meta.api.methods.updates.GetUpdates query: [409] Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
-
-org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error executing org.telegram.telegrambots.meta.api.methods.updates.GetUpdates query: [409] Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
-	at org.telegram.telegrambots.meta.api.methods.PartialBotApiMethod.deserializeResponseInternal(PartialBotApiMethod.java:54) ~[telegrambots-meta-6.9.7.1.jar:na]
-	at org.telegram.telegrambots.meta.api.methods.PartialBotApiMethod.deserializeResponseArray(PartialBotApiMethod.java:39) ~[telegrambots-meta-6.9.7.1.jar:na]
-	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:86) ~[telegrambots-meta-6.9.7.1.jar:na]
-	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:258) ~[telegrambots-6.9.7.1.jar:na]
-	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:188) ~[telegrambots-6.9.7.1.jar:na]
-
-2024-05-30T18:33:13.965+05:00 ERROR 12876 --- [telegramBot] [schedule_aitubot Telegram Connection] o.t.t.u.DefaultBotSession                : Error executing org.telegram.telegrambots.meta.api.methods.updates.GetUpdates query: [409] Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
-
-org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error executing org.telegram.telegrambots.meta.api.methods.updates.GetUpdates query: [409] Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
-	at org.telegram.telegrambots.meta.api.methods.PartialBotApiMethod.deserializeResponseInternal(PartialBotApiMethod.java:54) ~[telegrambots-meta-6.9.7.1.jar:na]
-	at org.telegram.telegrambots.meta.api.methods.PartialBotApiMethod.deserializeResponseArray(PartialBotApiMethod.java:39) ~[telegrambots-meta-6.9.7.1.jar:na]
-	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:86) ~[telegrambots-meta-6.9.7.1.jar:na]
-	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:258) ~[telegrambots-6.9.7.1.jar:na]
-	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:188) ~[telegrambots-6.9.7.1.jar:na]
-
-2024-05-30T18:33:14.578+05:00 ERROR 12876 --- [telegramBot] [schedule_aitubot Telegram Connection] o.t.t.u.DefaultBotSession                : Error executing org.telegram.telegrambots.meta.api.methods.updates.GetUpdates query: [409] Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
-
-org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error executing org.telegram.telegrambots.meta.api.methods.updates.GetUpdates query: [409] Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
-	at org.telegram.telegrambots.meta.api.methods.PartialBotApiMethod.deserializeResponseInternal(PartialBotApiMethod.java:54) ~[telegrambots-meta-6.9.7.1.jar:na]
-	at org.telegram.telegrambots.meta.api.methods.PartialBotApiMethod.deserializeResponseArray(PartialBotApiMethod.java:39) ~[telegrambots-meta-6.9.7.1.jar:na]
-	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:86) ~[telegrambots-meta-6.9.7.1.jar:na]
-	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:258) ~[telegrambots-6.9.7.1.jar:na]
-	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:188) ~[telegrambots-6.9.7.1.jar:na]
-
-2024-05-30T18:33:18.263+05:00 ERROR 12876 --- [telegramBot] [schedule_aitubot Telegram Connection] o.t.t.u.DefaultBotSession                : Error executing org.telegram.telegrambots.meta.api.methods.updates.GetUpdates query: [409] Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
-
-org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error executing org.telegram.telegrambots.meta.api.methods.updates.GetUpdates query: [409] Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
-	at org.telegram.telegrambots.meta.api.methods.PartialBotApiMethod.deserializeResponseInternal(PartialBotApiMethod.java:54) ~[telegrambots-meta-6.9.7.1.jar:na]
-	at org.telegram.telegrambots.meta.api.methods.PartialBotApiMethod.deserializeResponseArray(PartialBotApiMethod.java:39) ~[telegrambots-meta-6.9.7.1.jar:na]
-	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:86) ~[telegrambots-meta-6.9.7.1.jar:na]
-	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:258) ~[telegrambots-6.9.7.1.jar:na]
-	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:188) ~[telegrambots-6.9.7.1.jar:na]
-
-2024-05-30T18:33:18.880+05:00 ERROR 12876 --- [telegramBot] [schedule_aitubot Telegram Connection] o.t.t.u.DefaultBotSession                : Error executing org.telegram.telegrambots.meta.api.methods.updates.GetUpdates query: [409] Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
-
-org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error executing org.telegram.telegrambots.meta.api.methods.updates.GetUpdates query: [409] Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
-	at org.telegram.telegrambots.meta.api.methods.PartialBotApiMethod.deserializeResponseInternal(PartialBotApiMethod.java:54) ~[telegrambots-meta-6.9.7.1.jar:na]
-	at org.telegram.telegrambots.meta.api.methods.PartialBotApiMethod.deserializeResponseArray(PartialBotApiMethod.java:39) ~[telegrambots-meta-6.9.7.1.jar:na]
-	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:86) ~[telegrambots-meta-6.9.7.1.jar:na]
-	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:258) ~[telegrambots-6.9.7.1.jar:na]
-	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:188) ~[telegrambots-6.9.7.1.jar:na]
-
-2024-05-30T18:33:22.564+05:00 ERROR 12876 --- [telegramBot] [schedule_aitubot Telegram Connection] o.t.t.u.DefaultBotSession                : Error executing org.telegram.telegrambots.meta.api.methods.updates.GetUpdates query: [409] Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
-
-org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error executing org.telegram.telegrambots.meta.api.methods.updates.GetUpdates query: [409] Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
-	at org.telegram.telegrambots.meta.api.methods.PartialBotApiMethod.deserializeResponseInternal(PartialBotApiMethod.java:54) ~[telegrambots-meta-6.9.7.1.jar:na]
-	at org.telegram.telegrambots.meta.api.methods.PartialBotApiMethod.deserializeResponseArray(PartialBotApiMethod.java:39) ~[telegrambots-meta-6.9.7.1.jar:na]
-	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:86) ~[telegrambots-meta-6.9.7.1.jar:na]
-	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:258) ~[telegrambots-6.9.7.1.jar:na]
-	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:188) ~[telegrambots-6.9.7.1.jar:na]
-
-2024-05-30T18:33:23.283+05:00 ERROR 12876 --- [telegramBot] [schedule_aitubot Telegram Connection] o.t.t.u.DefaultBotSession                : Error executing org.telegram.telegrambots.meta.api.methods.updates.GetUpdates query: [409] Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
-
-org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error executing org.telegram.telegrambots.meta.api.methods.updates.GetUpdates query: [409] Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
-	at org.telegram.telegrambots.meta.api.methods.PartialBotApiMethod.deserializeResponseInternal(PartialBotApiMethod.java:54) ~[telegrambots-meta-6.9.7.1.jar:na]
-	at org.telegram.telegrambots.meta.api.methods.PartialBotApiMethod.deserializeResponseArray(PartialBotApiMethod.java:39) ~[telegrambots-meta-6.9.7.1.jar:na]
-	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:86) ~[telegrambots-meta-6.9.7.1.jar:na]
-	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:258) ~[telegrambots-6.9.7.1.jar:na]
-	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:188) ~[telegrambots-6.9.7.1.jar:na]
-
-2024-05-30T18:33:26.970+05:00 ERROR 12876 --- [telegramBot] [schedule_aitubot Telegram Connection] o.t.t.u.DefaultBotSession                : Error executing org.telegram.telegrambots.meta.api.methods.updates.GetUpdates query: [409] Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
-
-org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error executing org.telegram.telegrambots.meta.api.methods.updates.GetUpdates query: [409] Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
-	at org.telegram.telegrambots.meta.api.methods.PartialBotApiMethod.deserializeResponseInternal(PartialBotApiMethod.java:54) ~[telegrambots-meta-6.9.7.1.jar:na]
-	at org.telegram.telegrambots.meta.api.methods.PartialBotApiMethod.deserializeResponseArray(PartialBotApiMethod.java:39) ~[telegrambots-meta-6.9.7.1.jar:na]
-	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:86) ~[telegrambots-meta-6.9.7.1.jar:na]
-	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:258) ~[telegrambots-6.9.7.1.jar:na]
-	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:188) ~[telegrambots-6.9.7.1.jar:na]
-
-2024-05-30T18:33:27.687+05:00 ERROR 12876 --- [telegramBot] [schedule_aitubot Telegram Connection] o.t.t.u.DefaultBotSession                : Error executing org.telegram.telegrambots.meta.api.methods.updates.GetUpdates query: [409] Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
-
-org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error executing org.telegram.telegrambots.meta.api.methods.updates.GetUpdates query: [409] Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
-	at org.telegram.telegrambots.meta.api.methods.PartialBotApiMethod.deserializeResponseInternal(PartialBotApiMethod.java:54) ~[telegrambots-meta-6.9.7.1.jar:na]
-	at org.telegram.telegrambots.meta.api.methods.PartialBotApiMethod.deserializeResponseArray(PartialBotApiMethod.java:39) ~[telegrambots-meta-6.9.7.1.jar:na]
-	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:86) ~[telegrambots-meta-6.9.7.1.jar:na]
-	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:258) ~[telegrambots-6.9.7.1.jar:na]
-	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:188) ~[telegrambots-6.9.7.1.jar:na]
-
-2024-05-30T18:33:31.373+05:00 ERROR 12876 --- [telegramBot] [schedule_aitubot Telegram Connection] o.t.t.u.DefaultBotSession                : Error executing org.telegram.telegrambots.meta.api.methods.updates.GetUpdates query: [409] Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
-
-org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error executing org.telegram.telegrambots.meta.api.methods.updates.GetUpdates query: [409] Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
-	at org.telegram.telegrambots.meta.api.methods.PartialBotApiMethod.deserializeResponseInternal(PartialBotApiMethod.java:54) ~[telegrambots-meta-6.9.7.1.jar:na]
-	at org.telegram.telegrambots.meta.api.methods.PartialBotApiMethod.deserializeResponseArray(PartialBotApiMethod.java:39) ~[telegrambots-meta-6.9.7.1.jar:na]
-	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:86) ~[telegrambots-meta-6.9.7.1.jar:na]
-	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:258) ~[telegrambots-6.9.7.1.jar:na]
-	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:188) ~[telegrambots-6.9.7.1.jar:na]
-
-2024-05-30T18:33:32.089+05:00 ERROR 12876 --- [telegramBot] [schedule_aitubot Telegram Connection] o.t.t.u.DefaultBotSession                : Error executing org.telegram.telegrambots.meta.api.methods.updates.GetUpdates query: [409] Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
-
-org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error executing org.telegram.telegrambots.meta.api.methods.updates.GetUpdates query: [409] Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
-	at org.telegram.telegrambots.meta.api.methods.PartialBotApiMethod.deserializeResponseInternal(PartialBotApiMethod.java:54) ~[telegrambots-meta-6.9.7.1.jar:na]
-	at org.telegram.telegrambots.meta.api.methods.PartialBotApiMethod.deserializeResponseArray(PartialBotApiMethod.java:39) ~[telegrambots-meta-6.9.7.1.jar:na]
-	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:86) ~[telegrambots-meta-6.9.7.1.jar:na]
-	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:258) ~[telegrambots-6.9.7.1.jar:na]
-	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:188) ~[telegrambots-6.9.7.1.jar:na]
-
-2024-05-30T18:33:35.773+05:00 ERROR 12876 --- [telegramBot] [schedule_aitubot Telegram Connection] o.t.t.u.DefaultBotSession                : Error executing org.telegram.telegrambots.meta.api.methods.updates.GetUpdates query: [409] Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
-
-org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error executing org.telegram.telegrambots.meta.api.methods.updates.GetUpdates query: [409] Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
-	at org.telegram.telegrambots.meta.api.methods.PartialBotApiMethod.deserializeResponseInternal(PartialBotApiMethod.java:54) ~[telegrambots-meta-6.9.7.1.jar:na]
-	at org.telegram.telegrambots.meta.api.methods.PartialBotApiMethod.deserializeResponseArray(PartialBotApiMethod.java:39) ~[telegrambots-meta-6.9.7.1.jar:na]
-	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:86) ~[telegrambots-meta-6.9.7.1.jar:na]
-	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:258) ~[telegrambots-6.9.7.1.jar:na]
-	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:188) ~[telegrambots-6.9.7.1.jar:na]
-
-2024-05-30T18:33:36.388+05:00 ERROR 12876 --- [telegramBot] [schedule_aitubot Telegram Connection] o.t.t.u.DefaultBotSession                : Error executing org.telegram.telegrambots.meta.api.methods.updates.GetUpdates query: [409] Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
-
-org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error executing org.telegram.telegrambots.meta.api.methods.updates.GetUpdates query: [409] Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
-	at org.telegram.telegrambots.meta.api.methods.PartialBotApiMethod.deserializeResponseInternal(PartialBotApiMethod.java:54) ~[telegrambots-meta-6.9.7.1.jar:na]
-	at org.telegram.telegrambots.meta.api.methods.PartialBotApiMethod.deserializeResponseArray(PartialBotApiMethod.java:39) ~[telegrambots-meta-6.9.7.1.jar:na]
-	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:86) ~[telegrambots-meta-6.9.7.1.jar:na]
-	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:258) ~[telegrambots-6.9.7.1.jar:na]
-	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:188) ~[telegrambots-6.9.7.1.jar:na]
-
-2024-05-30T18:33:40.075+05:00 ERROR 12876 --- [telegramBot] [schedule_aitubot Telegram Connection] o.t.t.u.DefaultBotSession                : Error executing org.telegram.telegrambots.meta.api.methods.updates.GetUpdates query: [409] Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
-
-org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error executing org.telegram.telegrambots.meta.api.methods.updates.GetUpdates query: [409] Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
-	at org.telegram.telegrambots.meta.api.methods.PartialBotApiMethod.deserializeResponseInternal(PartialBotApiMethod.java:54) ~[telegrambots-meta-6.9.7.1.jar:na]
-	at org.telegram.telegrambots.meta.api.methods.PartialBotApiMethod.deserializeResponseArray(PartialBotApiMethod.java:39) ~[telegrambots-meta-6.9.7.1.jar:na]
-	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:86) ~[telegrambots-meta-6.9.7.1.jar:na]
-	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:258) ~[telegrambots-6.9.7.1.jar:na]
-	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:188) ~[telegrambots-6.9.7.1.jar:na]
-
-2024-05-30T18:33:42.232+05:00  INFO 18964 --- [telegramBot] [restartedMain] c.e.telegrambot.TelegramBotApplication   : Starting TelegramBotApplication using Java 21.0.1 with PID 18964 (C:\Users\USER\IdeaProjects\telegramBot\target\classes started by USER in C:\Users\USER\IdeaProjects\telegramBot)
-2024-05-30T18:33:42.233+05:00  INFO 18964 --- [telegramBot] [restartedMain] c.e.telegrambot.TelegramBotApplication   : No active profile set, falling back to 1 default profile: "default"
-2024-05-30T18:33:42.266+05:00  INFO 18964 --- [telegramBot] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2024-05-30T18:33:42.266+05:00  INFO 18964 --- [telegramBot] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2024-05-30T18:33:42.993+05:00  INFO 18964 --- [telegramBot] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-05-30T18:33:43.003+05:00  INFO 18964 --- [telegramBot] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-05-30T18:33:43.003+05:00  INFO 18964 --- [telegramBot] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
-2024-05-30T18:33:43.036+05:00  INFO 18964 --- [telegramBot] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-05-30T18:33:43.036+05:00  INFO 18964 --- [telegramBot] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 770 ms
-2024-05-30T18:33:44.141+05:00  INFO 18964 --- [telegramBot] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2024-05-30T18:33:44.166+05:00  INFO 18964 --- [telegramBot] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
-2024-05-30T18:33:44.382+05:00  INFO 18964 --- [telegramBot] [restartedMain] c.e.telegrambot.TelegramBotApplication   : Started TelegramBotApplication in 2.409 seconds (process running for 3.084)
+2024-05-31T04:27:48.519+05:00  INFO 13632 --- [telegramBot] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-05-31T04:27:48.520+05:00  INFO 13632 --- [telegramBot] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-05-31T04:27:49.210+05:00  INFO 13632 --- [telegramBot] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-05-31T04:27:49.218+05:00  INFO 13632 --- [telegramBot] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-05-31T04:27:49.218+05:00  INFO 13632 --- [telegramBot] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-05-31T04:27:49.249+05:00  INFO 13632 --- [telegramBot] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-05-31T04:27:49.249+05:00  INFO 13632 --- [telegramBot] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 729 ms
+2024-05-31T04:27:50.093+05:00  INFO 13632 --- [telegramBot] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-05-31T04:27:50.129+05:00  INFO 13632 --- [telegramBot] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''

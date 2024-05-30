@@ -4,13 +4,13 @@ package com.example.telegrambot.models;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.util.List;
+import java.util.ArrayList;
 
 @Data
 @Table(name="Schedule")
 public class Schedule {
     @Id
     private long chatID;
-    private List<String> objects;
+    private ArrayList<String> objects;
 
 }

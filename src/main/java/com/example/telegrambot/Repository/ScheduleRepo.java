@@ -144,4 +144,34 @@ public class ScheduleRepo{
         }
         return isDayNull;
     }
+
+    public ArrayList<Schedule> findDayObjects(int day){
+        try{
+            String query="SELECT * FROM schedule";
+
+            ArrayList<Schedule> all=new ArrayList<>();
+
+            PreparedStatement st=conn.prepareStatement(query);
+            ResultSet rs=st.executeQuery();
+            while (rs.next()){
+                Schedule user=new Schedule();
+
+                user.setChatID(rs.getLong("chatid"));
+                Array arraySQL= rs.getArray(days[day-1]);
+                if (arraySQL!=null) {
+                    String[] array=(String[]) arraySQL.getArray();
+                    user.setObjects(new ArrayList<>(Arrays.asList(array)));
+                }
+                else
+                    user.setObjects(new ArrayList<>());
+
+                all.add(user);
+            }
+            return all;
+        }catch (SQLException s){
+            log.error(s.getMessage());
+        }
+        return null;
+    }
+
 }
