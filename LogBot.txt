@@ -505,3 +505,14 @@ org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error exe
 2024-05-31T04:27:49.249+05:00  INFO 13632 --- [telegramBot] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 729 ms
 2024-05-31T04:27:50.093+05:00  INFO 13632 --- [telegramBot] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
 2024-05-31T04:27:50.129+05:00  INFO 13632 --- [telegramBot] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-05-31T10:51:57.368+05:00  INFO 16952 --- [telegramBot] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-05-31T10:51:57.369+05:00  INFO 16952 --- [telegramBot] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-05-31T10:51:58.219+05:00  INFO 16952 --- [telegramBot] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-05-31T10:51:58.232+05:00  INFO 16952 --- [telegramBot] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-05-31T10:51:58.233+05:00  INFO 16952 --- [telegramBot] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-05-31T10:51:58.268+05:00  INFO 16952 --- [telegramBot] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-05-31T10:51:58.268+05:00  INFO 16952 --- [telegramBot] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 898 ms
+2024-05-31T10:51:59.415+05:00 ERROR 16952 --- [telegramBot] [restartedMain] c.e.telegrambot.service.BotService       : Error occuredError executing org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands query: [404] Not Found
+2024-05-31T10:51:59.718+05:00  INFO 16952 --- [telegramBot] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-05-31T10:51:59.743+05:00  INFO 16952 --- [telegramBot] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-05-31T10:51:59.761+05:00 ERROR 16952 --- [telegramBot] [restartedMain] c.example.telegrambot.config.CreateBot   : Error occuredBot token and username can't be empty
