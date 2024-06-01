@@ -16,6 +16,7 @@ import org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.methods.updatingmessages.DeleteMessage;
 import org.telegram.telegrambots.meta.api.methods.updatingmessages.EditMessageText;
+import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.api.objects.commands.BotCommand;
 import org.telegram.telegrambots.meta.api.objects.commands.scope.BotCommandScopeDefault;
@@ -41,10 +42,9 @@ public class BotService extends TelegramLongPollingBot {
         List<BotCommand> commands=new ArrayList<>();
         commands.add(new BotCommand("/start","Запустить бота"));
         commands.add(new BotCommand("/help","Вопросы"));
-        commands.add(new BotCommand("/add","Добавить расписание"));
-        commands.add(new BotCommand("/delete","Удалить из расписания"));
+        commands.add(new BotCommand("/tomorrow","Занятия на завтра"));
+        commands.add(new BotCommand("/today","Занятия сегодня"));
         commands.add(new BotCommand("/show","Посмотреть расписание"));
-        commands.add(new BotCommand("/bye","Остановка бота"));
         try {
             this.execute(new SetMyCommands(commands,new BotCommandScopeDefault(),null));
         }catch (TelegramApiException e){
@@ -84,10 +84,8 @@ public class BotService extends TelegramLongPollingBot {
                 case "/add" -> addCommand(chatID);
                 case "/delete" -> deleteCommand(chatID);
                 case "/show" -> showCommand(chatID);
-                case "/bye" -> {
-                    settings.sendMessage(chatID, "<b>Пока!</b>\nБот остановлен для запуска /start");
-                    return;
-                }
+                case "/tomorrow" -> tomorrow();
+                case "/today" -> today();
                 default -> {
                     if (userStates.get(chatID)==null || !userStates.get(chatID).equals("/del") && !userStates.get(chatID).equals("/add")){
                         SendMessage message=new SendMessage(String.valueOf(chatID),"Выберите команду!");
@@ -164,7 +162,7 @@ public class BotService extends TelegramLongPollingBot {
             switch (callbackData) {
                 case "START_BUTTON", "BACK" -> {
                     userStates.put(chatID, "/start");
-                    days.Weekdays(chatID, 0);
+                    menuCommand(chatID,messageID);
                 }
                 case "MONDAY" -> days.Monday(chatID, messageID);
                 case "TUESDAY" -> days.Tuesday(chatID, messageID);
@@ -181,6 +179,25 @@ public class BotService extends TelegramLongPollingBot {
                     userStates.put(chatID, "/add");
                     changeExistData(chatID, messageID);
                 }
+
+                case "SHOW" -> {
+                    InlineKeyboardMarkup markup=new InlineKeyboardMarkup();
+                    List<List<InlineKeyboardButton>> rows=new ArrayList<>();
+                    List<InlineKeyboardButton> buttons=new ArrayList<>();
+                    InlineKeyboardButton button=new InlineKeyboardButton();
+                    button.setText("⬅Назад");
+                    button.setCallbackData("BACK");
+                    buttons.add(button);
+                    rows.add(buttons);
+                    markup.setKeyboard(rows);
+                    settings.sendEditMessage(chatID, messageID, markup,showAddedObjects(chatID));
+                }
+
+                case "ADDfromMenu" -> {
+                    days.Weekdays(messageID, chatID);
+                }
+
+                case "DELETE" -> deleteCommand(chatID);
 
             }
 
@@ -218,6 +235,40 @@ public class BotService extends TelegramLongPollingBot {
         }
     }
 
+    private void menuCommand(long chatId,int messageId) throws TelegramApiException {
+        EditMessageText message=new EditMessageText();
+
+        InlineKeyboardMarkup markup=new InlineKeyboardMarkup();
+        List<List<InlineKeyboardButton>> rows=new ArrayList<>();
+        List<InlineKeyboardButton> buttons=new ArrayList<>();
+
+        InlineKeyboardButton button=new InlineKeyboardButton();
+
+        button.setText("Показать");
+        button.setCallbackData("SHOW");
+        buttons.add(button);
+
+        button=new InlineKeyboardButton();
+        button.setText("Добавить");
+        button.setCallbackData("ADDfromMenu");
+        buttons.add(button);
+
+        button=new InlineKeyboardButton();
+        button.setText("Удалить");
+        button.setCallbackData("DELETE");
+        buttons.add(button);
+
+        rows.add(buttons);
+
+        markup.setKeyboard(rows);
+
+        message.setChatId(chatId);
+        message.setText("Что вы хотите сделать с расписанием?");
+        message.setReplyMarkup(markup);
+        message.setMessageId(messageId);
+
+        execute(message);
+    }
 
 
     //показывает текущие все расписания который добавил юзер
@@ -312,7 +363,7 @@ public class BotService extends TelegramLongPollingBot {
                         objectsList.remove(Integer.parseInt(text) - 1);
                         objects.put(chatID, objectsList);
                     }
-                    settings.sendDisappearingMessages(chatID, showActiveObjects(objects.get(chatID)) + "\n<i>Для удаление введите число занятия для остановки</i> /stop\n<b>Напишите еще занятия:</b>");
+                    settings.sendDisappearingMessages(chatID, showActiveObjects(objects.get(chatID),"add") + "\n<i>Для удаление введите число занятия для остановки</i> /stop\n<b>Напишите еще занятия:</b>");
                 } else
                     settings.sendDisappearingMessages(chatID, "Число не соответствует количеству занятий!\nДля остановки /stop");
             }
@@ -322,7 +373,7 @@ public class BotService extends TelegramLongPollingBot {
                     objectsList.add(text);
                     objects.put(chatID, objectsList);
                 }
-                settings.sendDisappearingMessages(chatID, showActiveObjects(objects.get(chatID)) + "\nДля удаление введите число занятия для остановки /stop\n<b>Напишите еще занятия:</b>");
+                settings.sendDisappearingMessages(chatID, showActiveObjects(objects.get(chatID),"add") + "\nДля удаление введите число занятия для остановки /stop\n<b>Напишите еще занятия:</b>");
             }
         }
         else {
@@ -330,12 +381,41 @@ public class BotService extends TelegramLongPollingBot {
             try {
                 if (new ScheduleRepo().userExist(chatID)) {
                     new ScheduleRepo().updateQuery(chatID, schedule,day);
-                    settings.sendMessage(chatID, showActiveObjects(objects.get(chatID))+"\nВсе <b>успешно</b> обновлено !");
-                    days.Weekdays(chatID,checkDays(chatID));
+
+                    SendMessage message=new SendMessage(String.valueOf(chatID),showActiveObjects(objects.get(chatID),"add")+"\nВсе <b>успешно</b> обновлено !");
+
+                    List<List<InlineKeyboardButton>> rows=new ArrayList<>();
+                    List<InlineKeyboardButton> buttons=new ArrayList<>();
+                    InlineKeyboardButton button=new InlineKeyboardButton();
+
+                    button.setText("Показать");
+                    button.setCallbackData("SHOW");
+
+                    rows.add(new ArrayList<>(List.of(button)));
+
+                    button=new InlineKeyboardButton();
+                    button.setText("⬅Назад");
+                    button.setCallbackData("BACK");
+                    buttons.add(button);
+
+                    button=new InlineKeyboardButton();
+                    button.setText("Добавлять дальше➡");
+                    button.setCallbackData("NEXT");
+                    buttons.add(button);
+
+                    rows.add(buttons);
+
+                    InlineKeyboardMarkup markup=new InlineKeyboardMarkup();
+                    markup.setKeyboard(rows);
+
+                    message.setReplyMarkup(markup);
+                    message.setParseMode(ParseMode.HTML);
+
+                    execute(message);
                 }
                 else {
                     new ScheduleRepo().addQuery(chatID, schedule,day);
-                    settings.sendMessage(chatID, showActiveObjects(objects.get(chatID))+"\nВсе <b>успешно</b> добавлено !");
+                    settings.sendMessage(chatID, showActiveObjects(objects.get(chatID),"add")+"\nВсе <b>успешно</b> добавлено !");
                     days.Weekdays(chatID,checkDays(chatID));
                 }
 
@@ -418,12 +498,13 @@ public class BotService extends TelegramLongPollingBot {
 
     // Показывает занятия которые добавятся в таблицу в методе AddObject
     @NotNull
-    private String showActiveObjects(ArrayList<String> objects){
+    private String showActiveObjects(ArrayList<String> objects,String status){
         StringBuilder sb=new StringBuilder();
         int order=1;
         for (String text:objects) {
             String modifiedText = text.substring(0, 1).toUpperCase() + text.substring(1).toLowerCase();
-            sb.append("<b>").append(order).append(".</b>").append(modifiedText).append("\n");
+            if (status.equals("add")) sb.append("<b>").append(order).append(".</b>").append(modifiedText).append("\n");
+            else sb.append("<b>        ").append(order).append(".</b>").append(modifiedText).append("\n");
             order++;
         }
         return sb.toString();
@@ -470,7 +551,7 @@ public class BotService extends TelegramLongPollingBot {
 
     // Отправка сообщений для всех пользователей в определенное время
     @Scheduled(cron = "0 0 21 * * *")
-    private void announce() throws SQLException {
+    private void tomorrow() throws SQLException, TelegramApiException, InterruptedException {
         LocalDate tomorrow=LocalDate.now().plusDays(1);
 
         ArrayList<Schedule> schedules;
@@ -490,13 +571,53 @@ public class BotService extends TelegramLongPollingBot {
         for (Schedule user:schedules) {
             if (!user.getObjects().isEmpty()) {
                 String sb = "<b>\uD83D\uDCCCЗавтрашние занятия:</b>\n" +
-                        showActiveObjects(user.getObjects()) +
+                        showActiveObjects(user.getObjects(),"show") +
                         "\n\n<b>Не забудь!</b>\uD83D\uDE09";
 
                 settings.sendMessage(user.getChatID(), sb);
             }
             else
-                settings.sendMessage(user.getChatID(), days[dayOfWeekNumber-1] +" у вас нет расписаний!\nЗаполни, чтобы получать уведомления каждый день\uD83D\uDE0A");
+                if (dayOfWeekNumber<6)
+                    settings.sendMessage(user.getChatID(), days[dayOfWeekNumber-1] +" у вас нет расписаний!\nЗаполни, чтобы получать уведомления каждый день\uD83D\uDE0A");
+                else {
+                    SendMessage send=new SendMessage(String.valueOf(user.getChatID()),"<b>Отдыхай завтра воскресенье\uD83D\uDE09</b>");
+                    send.setParseMode(ParseMode.HTML);
+                    int messageId=execute(send).getMessageId();
+                    Thread.sleep(1500);
+
+                    menuCommand(user.getChatID(), messageId);
+                }
+
+
+        }
+
+    }
+
+    private void today() throws SQLException {
+        LocalDate tomorrow=LocalDate.now();
+
+        ArrayList<Schedule> schedules;
+
+        int dayOfWeekNumber = tomorrow.getDayOfWeek().getValue();
+
+        schedules = switch (dayOfWeekNumber) {
+            case 1 -> new ScheduleRepo().findDayObjects(1);
+            case 2 -> new ScheduleRepo().findDayObjects(2);
+            case 3 -> new ScheduleRepo().findDayObjects(3);
+            case 4 -> new ScheduleRepo().findDayObjects(4);
+            case 5 -> new ScheduleRepo().findDayObjects(5);
+            default -> new ScheduleRepo().findDayObjects(6);
+        };
+        for (Schedule user:schedules) {
+            if (!user.getObjects().isEmpty()) {
+                String sb = "<b>\uD83D\uDCCCСегодня у вас:</b>\n" +
+                        showActiveObjects(user.getObjects(),"show") +
+                        "\n<b>Не забудь!</b>\uD83D\uDE09";
+
+                settings.sendMessage(user.getChatID(), sb);
+            }
+            else
+                settings.sendMessage(user.getChatID(), "На <b>сегодня</b> у вас нет расписаний!\nЗаполни, чтобы получать уведомления каждый день\uD83D\uDE0A");
         }
 
     }
@@ -513,6 +634,19 @@ public class BotService extends TelegramLongPollingBot {
             }
             else text="Добавь в другие дни!\n\n<b>\uD83D\uDCCCВыбери день :</b>";
             SendMessage message=new SendMessage(String.valueOf(chatID), text);
+
+            InlineKeyboardMarkup markup=new InlineKeyboardMarkup();
+            List<List<InlineKeyboardButton>> rows=new ArrayList<>();
+            List<InlineKeyboardButton> buttons = new ArrayList<>();
+            settings.SetMessageButtons(message, markup, rows, buttons);
+        }
+
+        public void Weekdays(int messageId,long chatID){
+            String text="Добавь в другие дни!\n\n<b>\uD83D\uDCCCВыбери день :</b>";
+            EditMessageText message=new EditMessageText();
+            message.setText(text);
+            message.setChatId(chatID);
+            message.setMessageId(messageId);
 
             InlineKeyboardMarkup markup=new InlineKeyboardMarkup();
             List<List<InlineKeyboardButton>> rows=new ArrayList<>();
@@ -615,6 +749,60 @@ public class BotService extends TelegramLongPollingBot {
         }
 
         public void SetMessageButtons(SendMessage message, InlineKeyboardMarkup markup, List<List<InlineKeyboardButton>> rows, List<InlineKeyboardButton> buttons){
+            InlineKeyboardButton button=new InlineKeyboardButton();
+
+            button.setText("1.Понедельник");
+            button.setCallbackData("MONDAY");
+
+            buttons.add(button);
+
+            button=new InlineKeyboardButton();
+            button.setText("4.Четверг");
+            button.setCallbackData("THURSDAY");
+
+            buttons.add(button);
+            rows.add(buttons);
+
+            buttons=new ArrayList<>();
+            button=new InlineKeyboardButton();
+            button.setText("2.Вторник");
+            button.setCallbackData("TUESDAY");
+
+            buttons.add(button);
+
+            button=new InlineKeyboardButton();
+            button.setText("5.Пятница");
+            button.setCallbackData("FRIDAY");
+
+            buttons.add(button);
+            rows.add(buttons);
+
+            buttons=new ArrayList<>();
+            button=new InlineKeyboardButton();
+            button.setText("3.Среда");
+            button.setCallbackData("WEDNESDAY");
+
+            buttons.add(button);
+
+            button=new InlineKeyboardButton();
+            button.setText("6.Суббота");
+            button.setCallbackData("SATURDAY");
+
+            buttons.add(button);
+            rows.add(buttons);
+
+            markup.setKeyboard(rows);
+            message.setReplyMarkup(markup);
+            message.setParseMode(ParseMode.HTML);
+
+            try {
+                execute(message);
+            }catch(TelegramApiException e){
+                log.error("[ERROR]"+e.getMessage());
+            }
+        }
+
+        public void SetMessageButtons(EditMessageText message, InlineKeyboardMarkup markup, List<List<InlineKeyboardButton>> rows, List<InlineKeyboardButton> buttons){
             InlineKeyboardButton button=new InlineKeyboardButton();
 
             button.setText("1.Понедельник");
